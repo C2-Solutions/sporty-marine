@@ -1,0 +1,40 @@
+{
+    "name": "lightarrowsexe/suitcase_talen",
+    "description": "Suitcase talen db link",
+    "type": "project",
+    "require": {
+        "php": "7.4"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Lightarrowsexe\\SuitcaseTalen\\": "src/"
+        }
+    },
+    "authors": [{
+        "name": "Bryan Bao",
+        "email": "bryan.bao@windesheim.nl",
+        "role": "Developer"
+    }, {
+        "name": "Enno Andel",
+        "email": "enno.andel@windesheim.nl",
+        "role": "Developer"
+    }, {
+        "name": "Joosd Dijkstra",
+        "email": "joost.dijkstra@windesheim.nl",
+        "role": "Developer"
+    }, {
+        "name": "Michael Vrijburg",
+        "email": "michael.vrijburg@windesheim.nl",
+        "role": "Developer"
+    }, {
+        "name": "Remco Denekamp",
+        "email": "remco.denekamp@windesheim.nl",
+        "role": "Developer"
+    }, {
+        "name": "Ronan Nieuwenhuijse",
+        "email": "ronan.nieuwenhuijse@windesheim.nl",
+        "role": "Developer"
+    }],
+    "minimum-stability": "stable"
+}
