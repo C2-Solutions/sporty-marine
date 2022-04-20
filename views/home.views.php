@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" href="public/css/mystylesheet.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <title>Sporty-marine</title>
 </head>
@@ -15,38 +15,65 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
 <!-- Start navbar -->
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: powderblue">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">Sporty-marine</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Modellen</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
-                </li>
-
-            </ul>
-            <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
-        </div>
-    </div>
-</nav>
+<?php require 'shared/header.php' ?>
 
 <!-- End navbar -->
 
-<center><h1>Dit is een home page (vanuit de view)</h1></center>
+<center><h1>Dit is een home page</h1></center>
 
-<img src="public/img/Nautica_480XL.jpg"
+<img id="homepic1" src="public/img/Nautica_480XL.jpg" style="float: left; margin-right: 15px;">
+<p>Lorem Ipsum is the single greatest threat. We are not - we are not keeping up with other websites.
+    Lorem Ipsum best not make any more threats to your website. It will be met with fire and fury like the world has never seen.
+    Does everybody know that pig named Lorem Ipsum?
+    An ‘extremely credible source’ has called my office and told me that Barack Obama’s placeholder text is a fraud.
+</p>
+<br><br><br><br>
+<center><h1>Sporty</h1></center>
+<hr class="bg-grey border-2 border-top border-grey">
+<!-- public/img/Nautica_480XL.jpg -->
+<!-- start gallery -->
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col">
+        <div class="card">
+            <img src="public/img/testboot.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Bootnaam</h5>
+                <p class="card-text">Lengte:  <br>Breedte: <br>Gewicht: <br>Doorvaarthoogte: <br>Diepgang: <br>Max. PK: <br>Max. Personen: <br>CE categorie: </p>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card">
+            <img src="public/img/testboot.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Bootnaam</h5>
+                <p class="card-text">Lengte:  <br>Breedte: <br>Gewicht: <br>Doorvaarthoogte: <br>Diepgang: <br>Max. PK: <br>Max. Personen: <br>CE categorie: </p>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card">
+            <img src="public/img/testboot.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Bootnaam</h5>
+                <p class="card-text">Lengte:  <br>Breedte: <br>Gewicht: <br>Doorvaarthoogte: <br>Diepgang: <br>Max. PK: <br>Max. Personen: <br>CE categorie: </p>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card">
+            <img src="public/img/testboot.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Bootnaam</h5>
+                <p class="card-text">Lengte:  <br>Breedte: <br>Gewicht: <br>Doorvaarthoogte: <br>Diepgang: <br>Max. PK: <br>Max. Personen: <br>CE categorie: </p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end gallery -->
 
+<!-- start footer -->
+<?php require 'shared/footer.php' ?>
+<!-- end footer -->
 </body>
 </html>
