@@ -100,4 +100,253 @@ p.text404
      font-size: 50px;
 }
 
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+}
 
+.product-card {
+    min-height: 500px;
+    min-width: 300px;
+    display: flex;
+    max-width: 300px;
+    justify-content: center;
+    flex-direction: column;
+    max-height: 500px;
+}
+
+.product-price {
+    alignment: center;
+    font-size: 20px;
+    color: #015a2e;
+    position: relative;
+    z-index: 5;
+}
+
+.product-banner {
+    width: 100%;
+    background-repeat: repeat;
+    background: url("https://apple-co.eu/wp-content/uploads/2016/01/HomeFlevosap-lunchbox-achtergrondB.jpg");
+    background-attachment: scroll;
+    background-position: top left;
+    text-align: center;
+
+}
+
+.add-to-cart {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    transition-duration: 0.4s;
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+}
+
+.add-to-cart:hover {
+    background-color: white;
+    color: black;
+    border: 2px solid #4CAF50;
+}
+
+.product-title
+{
+    margin-top: 5px;
+}
+.product-title a {
+    color: #015a2e;
+    z-index: 5;
+}
+
+.product-img img {
+    max-height: 200px;
+    max-width: 200px;
+    transition-duration: 0.3s;
+    z-index: 4;
+}
+
+
+@media (min-width: 1200px) {
+    .product-img img:hover {
+        transform: scale(1.5);
+    }
+}
+
+@media (max-width: 800px) {
+    .product-card {
+        min-height: 100%;
+        min-width: 100%;
+        text-align: center;
+        margin-bottom: 100px;
+    }
+
+    .product-title {
+        font-size: 100%;
+    }
+
+    .product-information {
+        font-size: 60%;
+        padding-bottom: 5%;
+    }
+
+    .product-price {
+        font-size: 100%;
+    }
+
+    .add-to-cart {
+        transform: scale(0.8);
+    }
+
+    .product-information-left img
+    {
+        display: none;
+    }
+
+    .product-information-right
+    {
+        margin-top: 50px;
+    }
+}
+
+
+
+/* product information page style */
+.product-column
+{
+    display: flex;
+    flex-direction: column;
+    padding: 0% 15% 0% 10%;
+}
+
+.product-name
+{
+    padding: 25px 0px 15px 0px;
+    font-size: 35px;
+    font-weight: bold;
+    border-bottom: 1px solid #000;
+}
+
+.product-inner
+{
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-information .product-information-left
+{
+    max-width: 60%;
+    min-width: 50%;
+}
+.product-information .product-information-left img
+{
+    max-height: 400px;
+}
+.product-information-right
+{
+    margin-left: auto;
+}
+
+.product-footer
+{
+    border-top: 1px solid #000;
+    margin-top: 25px;
+    padding-top: 25px;
+}
+
+.table-product
+{
+    border-collapse: collapse;
+}
+.table-product th, .table-product td
+{
+    padding: 20px;
+}
+.table-product tr
+{
+    border: 1px solid #000;
+}
+.table-product th
+{
+    text-align: left;
+}
+
+@media (min-width: 900px) {
+    .product-information
+    {
+        display: flex;
+        margin-top: 25px;
+    }
+}
+
+.menu-switch
+{
+    width: 100%;
+    background: #c8c8c8;
+    display: flex;
+}
+.switch-menu-item
+{
+    width: 50%;
+    padding: 25px 0px 25px 50px;
+    cursor: pointer;
+}
+.switch-menu-item.active-switch-menu-item
+{
+    background: #e8e8e8;
+}
+
+.switch-menu-item:hover
+{
+    background: #fff;
+}
+
+.product-ratings
+{
+    display: none;
+}
+
+.rating
+{
+    margin-top: 50px;
+}
+.rating:first-child
+{
+    margin-top: 25px;
+}
+
+.rating-header
+{
+    display: flex;
+    margin-bottom: 7px;
+}
+.rating-header h4
+{
+    margin: 0px;
+    width: -webkit-fill-available;
+}
+
+.rating-stars
+{
+    width: 100%;
+    text-align: right;
+}
+
+.rating-meta
+{
+    font-size: 14px;
+    margin-top: 5px;
+    border-top: 1px solid black;
+    width: fit-content;
+}
+
+.write-comment textarea
+{
+    width: 100%;
+    min-height: 100px;
+}
