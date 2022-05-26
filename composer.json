@@ -37,6 +37,13 @@
         "role": "Developer"
     }],
     "minimum-stability": "stable",
+    "require-dev": {
+        "composer/composer": "^2.0",
+        "overtrue/phplint": "^4.0",
+        "phpspec/prophecy": "^1.12",
+        "phpunit/phpunit": "^9.5",
+        "squizlabs/php_codesniffer": "^3.5"
+    },
     "scripts": {
         "lint": "phplint --no-cache src/",
         "phpcs": "phpcs --standard=PSR12 src/",
