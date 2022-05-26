@@ -1,6 +1,5 @@
 <?php require 'shared/header.php' ?>
 
-
 <!-- <div>  class="moet-hier-nog-een-class-container-van-maken"
    <h1 class="page-title" style="color:#000;">INLOGGEN</h1>
 
