@@ -36,5 +36,10 @@
         "email": "ronan.nieuwenhuijse@windesheim.nl",
         "role": "Developer"
     }],
-    "minimum-stability": "stable"
+    "minimum-stability": "stable",
+    "scripts": {
+        "lint": "phplint --no-cache src/",
+        "phpcs": "phpcs --standard=PSR12 src/",
+        "phpcbf": "phpcbf --standard=PSR12 src/"
+    }
 }
