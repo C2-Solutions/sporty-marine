@@ -1,5 +1,3 @@
-<?php require 'shared/header.php'?>
-
 <body>
 <img id="homepic1" src="public/img/testbootmodelpage.jpg" style="float: left; margin-right: 15px;">
 <p>
@@ -12,4 +10,3 @@
 <!--        je wou hier nog iets met (+) om iets toe te voegen?-->
 
 </body>
-<?php require 'shared/footer.php';
