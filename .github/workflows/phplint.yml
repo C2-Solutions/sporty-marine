@@ -28,4 +28,4 @@ jobs:
         run: composer lint
 
       - name: Run phpcs
-        run: composer phpcs .
+        run: composer phpcs
