@@ -1,6 +1,3 @@
-<?php require 'shared/header.php' ?>
-
-
 <!--<div>  class="moet-hier-nog-een-class-container-van-maken" -->
 <!--    <h1 class="page-title" style="color:#000;">INLOGGEN</h1>-->
 <!---->
@@ -34,6 +31,3 @@
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
-
-
-<?php require 'shared/footer.php' ?>
