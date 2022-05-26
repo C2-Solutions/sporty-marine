@@ -1,0 +1,24 @@
+name: Run PHP linter on push or pull request event
+
+on: [push, pull_request]
+
+jobs:
+  phplint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+        with:
+          fetch-depth: 0 # important!
+
+      - name: Install PHP_CodeSniffer
+        run: |
+          curl -OL https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar
+          php phpcs.phar --version
+      - uses: tinovyatkin/action-php-codesniffer@v1
+        with:
+          files: "**.php" # you may customize glob as needed
+          phpcs_path: php phpcs.phar
+          standard: phpcs.xml
+
+      - name: PHP Syntax Checker (Lint)
+        uses: StephaneBour/actions-php-lint@7.4
