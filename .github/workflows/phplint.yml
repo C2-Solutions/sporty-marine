@@ -7,17 +7,28 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-        with:
-          fetch-depth: 0 # important!
 
-      - name: Install PHP_CodeSniffer
-        run: |
-          curl -OL https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar
-          php phpcs.phar --version
-      - uses: tinovyatkin/action-php-codesniffer@v1
-        with:
-          phpcs_path: php phpcs.phar
-          standard: phpcs.xml
+      - name: Validate composer.json and composer.lock
+        run: composer validate
 
-      - name: PHP Syntax Checker (Lint)
-        uses: StephaneBour/actions-php-lint@7.4
+      - name: Cache Composer packages
+        id: composer-cache
+        uses: actions/cache@v2
+        with:
+          path: vendor
+          key: ${{ runner.os }}-php-${{ hashFiles('**/composer.json') }}
+          restore-keys: |
+            ${{ runner.os }}-php-
+
+      - name: Install dependencies
+        if: steps.composer-cache.outputs.cache-hit != 'true'
+        run: composer install --prefer-dist --no-progress --no-suggest
+
+      - name: Run lint
+        run: composer lint
+
+      - name: Run phpcs
+        run: composer phpcs
+
+      - name: Run phpunit
+        run: composer test
