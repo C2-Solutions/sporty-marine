@@ -9,7 +9,7 @@
 //    $requestURI="/";
 //elseif (substr($requestURI, 0, strlen('/'.$prefix))===('/'.$prefix)):
 //    $requestURI=substr($requestURI, strlen('/'.$prefix));
-//endif;
+//endif ;
 //
 //$request = trim($requestURI, '/');
 //
@@ -28,50 +28,49 @@ view('shared/header');
 $request = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
 
-if(true == !empty($request)) :
-// If request empty, send directly to home
-    if(!empty($_POST)) :
-        switch($request)
-        {
-            case '' :
+if (true == !empty($request)) :
+// if request empty, send directly to home
+    if (!empty($_POST)) :
+        switch ($request) {
+            case '':
                 Router::post('', '');
                 break;
 
-            default :
+            default:
                 view('404');
                 break;
         }
     else :
-        switch($request)
-        {
-            case '/' :
-            case '/home' :
+        switch ($request) {
+            case '/':
+            case '/home':
                 Router::get('HomeController', 'index');
                 break;
 
-            case '/contact' :
+            case '/contact':
                 Router::get('ContactController', 'index');
                 break;
 
-            case '/modellen' :
+            case '/modellen':
                 Router::get('ModelController', 'index');
                 break;
 
-            case '/model' :
-                Router::get('ModelController','modelInformation');
+            case '/model':
+                Router::get('ModelController', 'modelInformation');
                 break;
-            case '/adminlogin' :
+
+            case '/adminlogin':
                 Router::get('AdminController', 'index');
                 break;
 
-            default :
+            default:
                 view('404');
                 break;
         }
-    endif;
+    endif ;
 else :
     view('home');
-endif;
+endif ;
 
 // Shows footer on every page
 view('shared/footer');
