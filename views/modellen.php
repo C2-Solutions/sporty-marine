@@ -1,4 +1,3 @@
-<?php require 'shared/header.php'; ?>
 <?php echo '<h1>Dit is een modellenpagina</h1>'; ?>
 
 <!--<center><h1>Sporty</h1></center>-->
@@ -53,5 +52,3 @@
         </div>
     </div>
 </div>
-
-<?php require 'shared/footer.php'; ?>

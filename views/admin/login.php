@@ -1,5 +1,3 @@
-<?php require 'shared/header.php' ?>
-
 <!-- <div>  class="moet-hier-nog-een-class-container-van-maken"
    <h1 class="page-title" style="color:#000;">INLOGGEN</h1>
 
@@ -20,7 +18,7 @@
    </form>
 </div> -->
 
-<form>
+<form method="post" action="admin-login">
     <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Email address</label>
         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
@@ -33,6 +31,3 @@
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
-
-
-<?php require 'shared/footer.php' ?>

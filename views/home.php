@@ -6,11 +6,6 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
 
-    <!-- Start navbar -->
-    <?php require 'shared/header.php' ?>
-
-    <!-- End navbar -->
-
     <div style="text-align: center;">
         <h1 style="margin-left: auto; margin-right: auto;">Dit is een home page</h1>
     </div>
@@ -82,9 +77,5 @@
         </div>
     </div>
     <!-- end gallery -->
-
-    <!-- start footer -->
-    <?php require 'shared/footer.php' ?>
-    <!-- end footer -->
 </body>
 </html>
