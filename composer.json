@@ -46,7 +46,7 @@
     },
     "scripts": {
         "phplint": "phplint --no-cache .",
-        "phpcs": "phpcs --standard=PSR12 --standard=./phpcs.xml .",
-        "phpcbf": "phpcbf --standard=PSR12  --standard=./phpcbf.xml ."
+        "phpcs": "phpcs --standard=./phpcs.xml -w -p -v --report=code ./",
+        "phpcbf": "phpcbf --standard=./phpcbf.xml -p -v -vv -vvv ./"
     }
 }

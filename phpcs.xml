@@ -2,12 +2,8 @@
 <ruleset name="PHP_CodeSniffer">
     <description>The coding standard of C2 IT Solutions.</description>
 
-    <file>controllers</file>
-    <file>core</file>
     <file>index.php</file>
     <file>routes.php</file>
-    <file>src</file>
-    <file>views</file>
 
     <exclude-pattern>*/migrations/*</exclude-pattern>
     <exclude-pattern>*/vendor/*</exclude-pattern>
