@@ -28,6 +28,4 @@ jobs:
         run: composer phplint
 
       - name: Run php-codesniffer
-        run: |
-          composer phpcs
-          composer phpcbf
+        run: composer phpcs
