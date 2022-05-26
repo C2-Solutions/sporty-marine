@@ -1,6 +1,6 @@
 name: Run PHP linter on push or pull request event
 
-on: [push, pull_request]
+on: push
 
 jobs:
   phplint:
