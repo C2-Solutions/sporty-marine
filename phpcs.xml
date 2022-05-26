@@ -10,6 +10,7 @@
     <file>views</file>
 
     <exclude-pattern>*/migrations/*</exclude-pattern>
+    <exclude-pattern>*/vendor/*</exclude-pattern>
 
     <rule ref="PSR1">
         <exclude name="PSR1.Classes.ClassDeclaration"/>
