@@ -24,8 +24,11 @@ jobs:
         if: steps.composer-cache.outputs.cache-hit != 'true'
         run: composer install --prefer-dist --no-progress --no-suggest
 
-      - name: Run lint
-        run: composer lint
+      - name: Run phplint
+        run: composer phplint
 
-      - name: Run phpcs
+      - name: Run php-codebeautifier
+        run: composer phpcbf
+
+      - name: Run php-codesniffer
         run: composer phpcs
