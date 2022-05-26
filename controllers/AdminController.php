@@ -6,4 +6,16 @@ class AdminController
     {
         view('admin/login');
     }
+
+    public function login()
+    {
+        self::dashboardIndex();
+    }
+
+    public function dashboardIndex()
+    {
+        view('admin/dashboard');
+    }
+
+
 }

@@ -1,5 +1,5 @@
-// @codingStandardsIgnoreFile
-// This should be updated to specifically ignore the no-php rule unless php is actually being added here.
+<?php
+?>
 
 <head>
     <!-- Required meta tags -->
