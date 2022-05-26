@@ -9,7 +9,10 @@
             <a href="model"><img src="public/img/testboot.jpg" class="card-img-top" alt="..."></a>
             <div class="card-body">
                 <h5 class="card-title">Bootnaam</h5>
-                <p class="card-text">Lengte:  <br>Breedte: <br>Gewicht: <br>Doorvaarthoogte: <br>Diepgang: <br>Max. PK: <br>Max. Personen: <br>CE categorie: </p>
+                <p class="card-text">
+                    Lengte:  <br>Breedte: <br>Gewicht: <br>Doorvaarthoogte: <br>Diepgang: <br>Max. PK: <br>
+                    Max. Personen: <br>CE categorie:
+                </p>
             </div>
         </div>
     </div>
@@ -18,7 +21,10 @@
             <a href="model"><img src="public/img/testboot.jpg" class="card-img-top" alt="..."></a>
             <div class="card-body">
                 <h5 class="card-title">Bootnaam</h5>
-                <p class="card-text">Lengte:  <br>Breedte: <br>Gewicht: <br>Doorvaarthoogte: <br>Diepgang: <br>Max. PK: <br>Max. Personen: <br>CE categorie: </p>
+                <p class="card-text">
+                    Lengte:  <br>Breedte: <br>Gewicht: <br>Doorvaarthoogte: <br>Diepgang: <br>Max. PK: <br>
+                    Max. Personen: <br>CE categorie:
+                </p>
             </div>
         </div>
     </div>
@@ -27,7 +33,10 @@
             <a href="model"><img src="public/img/testboot.jpg" class="card-img-top" alt="..."></a>
             <div class="card-body">
                 <h5 class="card-title">Bootnaam</h5>
-                <p class="card-text">Lengte:  <br>Breedte: <br>Gewicht: <br>Doorvaarthoogte: <br>Diepgang: <br>Max. PK: <br>Max. Personen: <br>CE categorie: </p>
+                <p class="card-text">
+                    Lengte:  <br>Breedte: <br>Gewicht: <br>Doorvaarthoogte: <br>Diepgang: <br>Max. PK: <br>
+                    Max. Personen: <br>CE categorie:
+                </p>
             </div>
         </div>
     </div>
@@ -36,7 +45,10 @@
             <a href="model"><img src="public/img/testboot.jpg" class="card-img-top" alt="..."></a>
             <div class="card-body">
                 <h5 class="card-title">Bootnaam</h5>
-                <p class="card-text">Lengte:  <br>Breedte: <br>Gewicht: <br>Doorvaarthoogte: <br>Diepgang: <br>Max. PK: <br>Max. Personen: <br>CE categorie: </p>
+                <p class="card-text">
+                    Lengte:  <br>Breedte: <br>Gewicht: <br>Doorvaarthoogte: <br>Diepgang: <br>Max. PK: <br>
+                    Max. Personen: <br>CE categorie:
+                </p>
             </div>
         </div>
     </div>

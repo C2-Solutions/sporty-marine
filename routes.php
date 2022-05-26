@@ -13,6 +13,7 @@
 //
 //$request = trim($requestURI, '/');
 
+
 $router->define([
     ''           => 'controllers/home.controller.php',
     'modellen'   => 'controllers/modellen.controller.php',
