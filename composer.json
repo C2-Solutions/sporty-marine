@@ -45,8 +45,8 @@
         "squizlabs/php_codesniffer": "^3.5"
     },
     "scripts": {
-        "lint": "phplint --no-cache .",
-        "phpcs": "phpcs --standard=PSR12 .",
-        "phpcbf": "phpcbf --standard=PSR12 ."
+        "phplint": "phplint --no-cache .",
+        "phpcs": "phpcs --standard=./phpcs.xml -w -p -v --report=code ./",
+        "phpcbf": "phpcbf --standard=./phpcbf.xml -p -v -vv -vvv ./"
     }
 }
