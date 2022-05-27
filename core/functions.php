@@ -55,3 +55,29 @@ function redirect($location)
 {
     header('location: '.$location);
 }
+
+function executeSql($query, $fetch_all = false)
+{
+    global $conn;
+
+    if(true === $fetch_all) :
+        $result = $conn->query($query)->fetchAll();
+
+        if(true === !empty($result)) :
+            return $result;
+        endif;
+
+        return false;
+    endif;
+
+    if($conn->query($query)) :
+        return true;
+    endif;
+
+    return false;
+}
+
+function executeFetchAllSql($query)
+{
+    return executeSql($query, true);
+}

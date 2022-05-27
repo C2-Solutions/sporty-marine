@@ -1,4 +1,6 @@
 <?php
 
 ?>
-<body>hoi</body>
+<body>
+<h1>hoi</h1>
+</body>
