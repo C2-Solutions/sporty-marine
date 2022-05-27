@@ -67,6 +67,9 @@ if(true == !empty($request)) :
             case '/admin-dashboard' :
                 Router::get('AdminController', 'dashboardIndex');
                 break;
+            case '/admin-modellen' :
+                Router::get('AdminController', 'adminModelIndex');
+                break;
 
 
             default :

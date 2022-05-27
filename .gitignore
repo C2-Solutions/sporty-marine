@@ -16,3 +16,4 @@ yarn-error.log
 .gitattributes
 .styleci.yml
 .editorconfig
+/core/database/config.ini
