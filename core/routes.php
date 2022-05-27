@@ -28,51 +28,52 @@ view('shared/header');
 $request = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
 
-if(true == !empty($request)) :
+if (true == !empty($request)) :
 // If request empty, send directly to home
-    if(!empty($_POST)) :
-        switch($request)
-        {
-            case 'admin-login' :
+    if (!empty($_POST)) :
+        switch ($request) {
+            case 'admin-login':
                 Router::post('AdminController', 'login');
                 break;
 
-            default :
+            default:
                 view('404');
                 view('shared/footer');
                 break;
         }
     else :
-        switch($request)
-        {
-            case '/' :
-            case '/home' :
+        switch ($request) {
+            case '/':
+            case '/home':
                 Router::get('HomeController', 'index');
                 break;
 
-            case '/contact' :
+            case '/contact':
                 Router::get('ContactController', 'index');
                 break;
 
-            case '/modellen' :
+            case '/modellen':
                 Router::get('ModelController', 'index');
                 break;
 
-            case '/model' :
+            case '/model':
                 Router::get('ModelController','modelInformation');
                 break;
-            case '/admin-login' :
+
+            case '/admin-login':
                 Router::get('AdminController', 'index');
                 break;
-            case '/admin-dashboard' :
+
+            case '/admin-dashboard':
                 Router::get('AdminController', 'dashboardIndex');
                 break;
-            case '/admin-modellen' :
+
+            case '/admin-modellen':
                 Router::get('AdminController', 'adminModelIndex');
                 break;
 
 
-            default :
+            default:
                 view('404');
                 view('shared/footer');
                 break;

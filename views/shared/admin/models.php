@@ -1,5 +1,7 @@
 <div class="card" id="model_<?php echo $model['id'];?>">
-    <a href="model?model_id=model_<?php echo $model['id'];?>"><img src="public/img/testboot.jpg" class="card-img-top" alt="..."></a>
+    <a href="model?model_id=model_<?php echo $model['id'];?>">
+        <img src="public/src/products/<?php echo $model['image']; ?>" class="card-img-top" alt="...">
+    </a>
     <div class="card-body">
         <h5 class="card-title"><?php echo $model['name'];?></h5>
         <p class="card-text">

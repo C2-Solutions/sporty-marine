@@ -30,7 +30,7 @@ class AdminController
 
         $models = $this->models->getAll();
 
-        if(true === !empty($models)) :
+        if (true === !empty($models)) :
             $content['products'] = $models;
         endif;
 
