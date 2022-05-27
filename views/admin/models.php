@@ -5,10 +5,10 @@
 
     <div class="modellen col">
         <?php
-        if(true === !empty($models)) :
-                foreach ($models as $model) {
-                    require('views/shared/admin/models.php');
-                }
+        if (true === !empty($models)) :
+            foreach ($models as $model) {
+                require('views/shared/admin/models.php');
+            }
         else :
             echo 'Er bestaan nog geen modellen.';
         endif;
