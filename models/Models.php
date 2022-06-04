@@ -20,7 +20,12 @@ class Models
     {
         global $conn;
 
-        $sql = "SELECT `id`, `name`, `image`, `length`, `width`, `weight`, `airdraft`, `draft`, `maxpk`, `maxpers`, `cec` FROM `models` WHERE `id` = ?";
+        $sql = "SELECT 
+                `id`, `name`, `image`, `length`, `width`, `weight`, `airdraft`, `draft`, `maxpk`, `maxpers`, `cec` 
+                FROM 
+                `models` 
+                WHERE 
+                `id` = ?";
 
         $sth = $conn->prepare($sql);
         $sth->execute(array($id));

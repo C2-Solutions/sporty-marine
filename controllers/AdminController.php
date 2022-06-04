@@ -18,11 +18,12 @@ class AdminController
     {
         $content = [];
 
-        $adminname = htmlspecialchars($_POST['username']); $password = htmlspecialchars($_POST['password']);
+        $adminname = htmlspecialchars($_POST['username']);
+        $password = htmlspecialchars($_POST['password']);
         $admin = Admin::login($adminname, $password);
 
-        if(true == !empty($admin)) :
-            if(false === $admin[0]) :
+        if (true == !empty($admin)) :
+            if (false === $admin[0]) :
                 $content['errorMessage'] = $admin[1];
 
                 view('admin/login', $content);
@@ -31,7 +32,7 @@ class AdminController
 
             $admin = $admin[1];
 
-            if(true == !empty($admin)) :
+            if (true == !empty($admin)) :
                 $_SESSION['adminid']     =   (!empty($admin['id'])) ? $admin['id'] : '';
                 $_SESSION['username']    =   (!empty($admin['username'])) ? $admin['username'] : '';
 

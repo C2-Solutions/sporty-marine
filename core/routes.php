@@ -57,7 +57,7 @@ if (true == !empty($request)) :
                 break;
 
             case '/model':
-                if(true === !empty($_GET['id'])) :
+                if (true === !empty($_GET['id'])) :
                     Router::get('ModelController', 'modelInformation', htmlspecialchars($_GET['id']));
                 endif;
                 break;
@@ -74,7 +74,7 @@ if (true == !empty($request)) :
                 Router::get('AdminController', 'adminModelIndex');
                 break;
 
-            case '/uitloggen' :
+            case '/uitloggen':
                 Router::get('AdminController', 'logout');
                 break;
 
