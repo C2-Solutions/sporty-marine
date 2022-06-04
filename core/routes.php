@@ -32,7 +32,7 @@ if (true == !empty($request)) :
 // If request empty, send directly to home
     if (!empty($_POST)) :
         switch ($request) {
-            case 'admin-login':
+            case '/admin-login':
                 Router::post('AdminController', 'login');
                 break;
 
@@ -57,7 +57,9 @@ if (true == !empty($request)) :
                 break;
 
             case '/model':
-                Router::get('ModelController','modelInformation');
+                if(true === !empty($_GET['id'])) :
+                    Router::get('ModelController', 'modelInformation', htmlspecialchars($_GET['id']));
+                endif;
                 break;
 
             case '/admin-login':
@@ -72,6 +74,9 @@ if (true == !empty($request)) :
                 Router::get('AdminController', 'adminModelIndex');
                 break;
 
+            case '/uitloggen' :
+                Router::get('AdminController', 'logout');
+                break;
 
             default:
                 view('404');

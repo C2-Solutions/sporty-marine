@@ -81,3 +81,16 @@ function executeFetchAllSql($query)
 {
     return executeSql($query, true);
 }
+
+function isAdmin()
+{
+    if(isset($_SESSION['adminid'])) :
+        if(!empty(htmlspecialchars($_SESSION['adminid']))) :
+            return true;
+        endif;
+
+        return false;
+    endif;
+
+    return false;
+}

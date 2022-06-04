@@ -11,9 +11,9 @@ class DatabaseConfiguration
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
             return $conn;
-        }
-        catch (PDOException $e) {
-            echo 'Failed to connect to MySQL: ' . $e->getMessage();;
+        } catch (PDOException $e) {
+            echo 'Failed to connect to MySQL: ' . $e->getMessage();
+            ;
             exit();
         }
     }

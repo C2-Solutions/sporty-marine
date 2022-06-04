@@ -1,8 +1,8 @@
 <?php
 
 require_once('core/functions.php');
-//require_once('core/database/conf.php');
-//require_once('core/settings.php');
+require_once('core/database/config.php');
+require_once('core/settings.php');
 
 $models = scandir('models');
 $controllers = scandir('controllers');
