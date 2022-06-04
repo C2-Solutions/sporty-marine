@@ -1,14 +1,42 @@
-<body>
-    <img id="homepic1" alt="testbootmodelpage" src="public/img/testbootmodelpage.jpg"
-        style="float: left; margin-right: 15px;">
-
-    <p>
-        Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro.
-        De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia?
-        De apocalypsi gorger omero undead survivor dictum mauris.
-        Hi mindless mortuis soulless creaturas, imo evil stalking monstra adventus resi dentevil vultus comedat
-        cerebella viventium.
-    </p>
-
-    <!--        je wou hier nog iets met (+) om iets toe te voegen?-->
-</body>
+<div class="card" id="model_<?php echo $model['id'];?>">
+    <img src="public/img/<?php echo $model['image']; ?>" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title"><?php echo $model['name'];?></h5>
+        <p class="card-text">
+        <table class="model-info-table">
+            <tr>
+                <td>Lengte:</td>
+                <td><?php echo $model['length'];?></td>
+            </tr>
+            <tr>
+                <td>Breedte:</td>
+                <td><?php echo $model['width'];?></td>
+            </tr>
+            <tr>
+                <td>Gewicht:</td>
+                <td><?php echo $model['weight'];?></td>
+            </tr>
+            <tr>
+                <td>Doorvaarthoogte:</td>
+                <td><?php echo $model['airdraft'];?></td>
+            </tr>
+            <tr>
+                <td>Diepgang:</td>
+                <td><?php echo $model['draft'];?></td>
+            </tr>
+            <tr>
+                <td>Max. PK:</td>
+                <td><?php echo $model['maxpk'];?></td>
+            </tr>
+            <tr>
+                <td>Max. Personen:</td>
+                <td><?php echo $model['maxpers'];?></td>
+            </tr>
+            <tr>
+                <td>CE Categorie:</td>
+                <td><?php echo $model['cec'];?></td>
+            </tr>
+        </table>
+        </p>
+    </div>
+</div>

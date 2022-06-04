@@ -1,3 +1,4 @@
+</body>
 <footer class="text-black text-center text-lg-start" style="background-color: powderblue">
     <!-- Grid container -->
     <div class="container p-4">
