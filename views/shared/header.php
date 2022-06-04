@@ -29,33 +29,33 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <?php
-                if(!empty(IsAdmin())) :
-                ?>
-                    <li class="nav-item">
-                        <a class="nav-link" href="admin-modellen">Modellen</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="admin-contact">Contact</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link">Ingelogd als: <?php echo $_SESSION['username']?></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="uitloggen">Uitloggen</a>
-                    </li>
-                <?php
-                else:
-                ?>
-                    <li class="nav-item">
-                        <a class="nav-link aria-current=page" href="/">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="modellen">Modellen</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact">Contact</a>
-                    </li>
-                <?php
+                if (!empty(IsAdmin())) :
+                    ?>
+                <li class="nav-item">
+                    <a class="nav-link" href="admin-modellen">Modellen</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="admin-contact">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link">Ingelogd als: <?php echo $_SESSION['username']?></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="uitloggen">Uitloggen</a>
+                </li>
+                    <?php
+                else :
+                    ?>
+                <li class="nav-item">
+                    <a class="nav-link aria-current=page" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="modellen">Modellen</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact">Contact</a>
+                </li>
+                    <?php
                 endif;
                 ?>
             </ul>
