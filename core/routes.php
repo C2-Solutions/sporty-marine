@@ -36,6 +36,9 @@ if (true == !empty($request)) :
                 Router::post('AdminController', 'login');
                 break;
 
+            case '/contact':
+                Router::post('ContactController', 'new');
+                break;
             default:
                 view('404');
                 view('shared/footer');
@@ -53,6 +56,7 @@ if (true == !empty($request)) :
                 break;
 
             case '/modellen':
+            case '/admin-modellen':
                 Router::get('ModelController', 'index');
                 break;
 
@@ -70,8 +74,20 @@ if (true == !empty($request)) :
                 Router::get('AdminController', 'dashboardIndex');
                 break;
 
-            case '/admin-modellen':
-                Router::get('AdminController', 'adminModelIndex');
+            case '/edit-model':
+                if (true === !empty($_GET['id'])) :
+                    Router::get('ModelController', 'editModel', htmlspecialchars($_GET['id']));
+                endif;
+                break;
+
+            case '/admin-contacts':
+                Router::get('ContactController', 'adminContactIndex');
+                break;
+
+            case '/admin-contact':
+                if (true === !empty($_GET['id'])) :
+                    Router::get('ContactController', 'contactInformation', htmlspecialchars($_GET['id']));
+                endif;
                 break;
 
             case '/uitloggen':

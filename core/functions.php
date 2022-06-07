@@ -82,6 +82,11 @@ function executeFetchAllSql($query)
     return executeSql($query, true);
 }
 
+function mysqlDate()
+{
+    return date('Y-m-d');
+}
+
 function isAdmin()
 {
     if (isset($_SESSION['adminid'])) :
@@ -93,4 +98,9 @@ function isAdmin()
     endif;
 
     return false;
+}
+
+function convert_date($date, $format = 'd/m/Y')
+{
+    return date($format, strtotime($date));
 }
