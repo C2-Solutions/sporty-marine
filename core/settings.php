@@ -9,7 +9,7 @@ if (false === isAdmin()) :
     switch ($page) {
         case 'admin-dashboard':
         case 'admin-modellen':
-        case 'admin-contact':
+        case 'admin-contacts':
             redirect('/');
             break;
     }
