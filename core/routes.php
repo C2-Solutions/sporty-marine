@@ -28,7 +28,7 @@ view('shared/header');
 $request = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
 
-if (true == !empty($request)) :
+if (empty($request)) :
 // If request empty, send directly to home
     if (!empty($_POST)) :
         switch ($request) {

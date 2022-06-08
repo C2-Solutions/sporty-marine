@@ -12,7 +12,7 @@ function getPageName($strip_slashes = false, $return_array = false)
     if (true === $return_array) :
         $page = explode('/', $page);
 
-        if (true == !empty($page)) :
+        if (empty($page)) :
             return array_filter($page);
         endif;
     endif;
@@ -22,7 +22,7 @@ function getPageName($strip_slashes = false, $return_array = false)
 
 function view($filename, $contents = array())
 {
-    if (false === file_exists('views/' . $filename . '.php')) :
+    if (!file_exists('views/' . $filename . '.php')) :
         require_once('views/404.php');
         exit();
     endif;

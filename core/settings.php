@@ -5,7 +5,7 @@ session_start();
 $page = getPageName(true);
 $conn = DatabaseConfiguration::setConnection();
 
-if (false === isAdmin()) :
+if (!isAdmin()) :
     switch ($page) {
         case 'admin-dashboard':
         case 'admin-modellen':
