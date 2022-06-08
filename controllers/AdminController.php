@@ -15,7 +15,7 @@ class AdminController
         $password = htmlspecialchars($_POST['password']);
         $admin = Admin::login($adminname, $password);
 
-        if (empty($admin)) :
+        if (!empty($admin)) :
             if (!$admin[0]) :
                 $content['errorMessage'] = $admin[1];
 
@@ -25,7 +25,7 @@ class AdminController
 
             $admin = $admin[1];
 
-            if (empty($admin)) :
+            if (!empty($admin)) :
                 $_SESSION['adminid']     =   (!empty($admin['id'])) ? $admin['id'] : '';
                 $_SESSION['username']    =   (!empty($admin['username'])) ? $admin['username'] : '';
 

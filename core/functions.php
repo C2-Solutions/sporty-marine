@@ -12,7 +12,7 @@ function getPageName($strip_slashes = false, $return_array = false)
     if ($return_array) :
         $page = explode('/', $page);
 
-        if (empty($page)) :
+        if (!empty($page)) :
             return array_filter($page);
         endif;
     endif;

@@ -8,7 +8,7 @@ class Database
 
         $results = executeFetchAllSql($sql);
 
-        if (empty($results) && true == is_array($results)) :
+        if (!empty($results) && true == is_array($results)) :
             return $results;
         endif;
 
@@ -25,7 +25,7 @@ class Database
         $sth->execute(array($id));
         $results = $sth->fetch();
 
-        if (empty($results) && true == is_array($results)) :
+        if (!empty($results) && true == is_array($results)) :
             return $results;
         endif;
 
