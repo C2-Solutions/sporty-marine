@@ -90,6 +90,12 @@ if (true == !empty($request)) :
                 endif;
                 break;
 
+            case '/delete-contact':
+                if (true === !empty($_GET['id'])) :
+                    Router::get('ContactController', 'delete', htmlspecialchars($_GET['id']));
+                endif;
+                break;
+
             case '/uitloggen':
                 Router::get('AdminController', 'logout');
                 break;

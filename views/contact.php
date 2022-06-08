@@ -1,16 +1,28 @@
-<?php
-?>
 <div class="container">
     <div class="row">
-        <h3>Heeft u een vraag?</h3>
-
+        <div class="col-md-12 mb-3">
+            <div class="card">
+                <div class="card-header" style="text-align: center">
+                    <h4>Heeft u een vraag?</h4>
+                </div>
+            </div>
+        </div>
         <div class="col-md-8 mb-2">
             <div class="card">
                 <div class="card-header">
-                    Stel hier je vraag!
+                    <?php if (!empty(postSuccess())) :
+                        echo 'Uw bericht is met succes verstuurd!';
+                    else :
+                        echo 'Stel hier je vraag!';
+                    endif;
+                    ?>
                 </div>
 
                 <div class="card-body">
+                    <?php if (!empty(postSuccess())) :
+                        echo 'Als u nog een bericht wilt versturen kunt u de pagina verversen.';
+                    else :
+                        ?>
                     <form method="post" action="/contact">
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">Naam</label>
@@ -52,6 +64,9 @@
                             </div>
                         </div>
                     </form>
+                        <?php
+                    endif;
+                    ?>
                 </div>
             </div>
         </div>
@@ -69,3 +84,7 @@
         </div>
     </div>
 </div>
+
+<?php
+unset($_SESSION['contactsent']);
+?>

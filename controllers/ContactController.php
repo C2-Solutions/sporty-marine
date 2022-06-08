@@ -61,6 +61,7 @@ class ContactController
             $submission = $this->contacts->new($data);
 
             if ($submission) :
+                $_SESSION['contactsent'] = true;
                 redirect('/contact');
             endif;
 
@@ -68,5 +69,17 @@ class ContactController
         endif;
 
         redirect('/contact');
+    }
+
+    public function delete($id)
+    {
+        $deleted = $this->database->delete($id, 'contact');
+
+        if ($deleted) :
+            return redirect('/admin-contacts');
+            exit;
+        endif;
+
+        echo 'error';
     }
 }
