@@ -1,6 +1,6 @@
 <div class="modellen row row-cols-1 row-cols-md-3 g-4">
         <?php
-        if (true === !empty($models)) :
+        if (!empty($models)) :
             foreach ($models as $model) {
                 require('views/shared/admin/modellist.php');
             }

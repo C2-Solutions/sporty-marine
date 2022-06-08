@@ -38,7 +38,7 @@ class Database
 
         $result = executeSql($sql);
 
-        if (true === $result) :
+        if ($result) :
             return true;
         endif;
 

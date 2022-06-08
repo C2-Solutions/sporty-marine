@@ -5,11 +5,11 @@ function getPageName($strip_slashes = false, $return_array = false)
     $page = $_SERVER['REQUEST_URI'];
     $page = stripslashes($page);
 
-    if (true === $strip_slashes) :
+    if ($strip_slashes) :
         $page = str_replace('/', '', $page);
     endif;
 
-    if (true === $return_array) :
+    if ($return_array) :
         $page = explode('/', $page);
 
         if (empty($page)) :
@@ -27,7 +27,7 @@ function view($filename, $contents = array())
         exit();
     endif;
 
-    if (true === is_array($contents) && true === !empty(($contents))) :
+    if (is_array($contents) && !empty(($contents))) :
         extract($contents);
     endif;
 
@@ -60,10 +60,10 @@ function executeSql($query, $fetch_all = false)
 {
     global $conn;
 
-    if (true === $fetch_all) :
+    if ($fetch_all) :
         $result = $conn->query($query)->fetchAll();
 
-        if (true === !empty($result)) :
+        if (!empty($result)) :
             return $result;
         endif;
 

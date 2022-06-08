@@ -61,7 +61,7 @@ if (empty($request)) :
                 break;
 
             case '/model':
-                if (true === !empty($_GET['id'])) :
+                if (!empty($_GET['id'])) :
                     Router::get('ModelController', 'modelInformation', htmlspecialchars($_GET['id']));
                 endif;
                 break;
@@ -75,7 +75,7 @@ if (empty($request)) :
                 break;
 
             case '/edit-model':
-                if (true === !empty($_GET['id'])) :
+                if (!empty($_GET['id'])) :
                     Router::get('ModelController', 'editModel', htmlspecialchars($_GET['id']));
                 endif;
                 break;
@@ -85,13 +85,13 @@ if (empty($request)) :
                 break;
 
             case '/admin-contact':
-                if (true === !empty($_GET['id'])) :
+                if (!empty($_GET['id'])) :
                     Router::get('ContactController', 'contactInformation', htmlspecialchars($_GET['id']));
                 endif;
                 break;
 
             case '/delete-contact':
-                if (true === !empty($_GET['id'])) :
+                if (!empty($_GET['id'])) :
                     Router::get('ContactController', 'delete', htmlspecialchars($_GET['id']));
                 endif;
                 break;

@@ -22,7 +22,7 @@ class ContactController
 
         $contacts = $this->database->getAll('contact');
 
-        if (true === !empty($contacts)) :
+        if (!empty($contacts)) :
             $content['contacts'] = $contacts;
         endif;
 
@@ -35,13 +35,13 @@ class ContactController
 
         $contact = $this->database->getById($id, 'contact');
 
-        if (true === !empty($contact)) :
+        if (!empty($contact)) :
             $content['contact'] = $contact;
         endif;
 
         view('admin/contact', $content);
     }
-    
+
     public function new()
     {
         $data = array(

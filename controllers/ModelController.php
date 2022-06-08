@@ -17,7 +17,7 @@ class ModelController
 
         $models = $this->database->getAll('models');
 
-        if (true === !empty($models)) :
+        if (!empty($models)) :
             $content['models'] = $models;
         endif;
 
@@ -34,7 +34,7 @@ class ModelController
 
         $model = $this->database->getById($id, 'models');
 
-        if (true === !empty($model)) :
+        if (!empty($model)) :
             $content['model'] = $model;
         endif;
 

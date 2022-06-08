@@ -23,7 +23,7 @@ class DatabaseConfiguration
         if (file_exists('core/database/config.ini')) :
             $conf = parse_ini_file('config.ini');
 
-            if (true === !empty($conf) && true === is_array($conf)) :
+            if (!empty($conf) && is_array($conf)) :
                 return self::connect($conf['host'], $conf['user'], $conf['password'], $conf['name']);
             endif;
         else :
