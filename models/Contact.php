@@ -10,7 +10,7 @@ class Contact
         $message = $data['message'];
         $date = mysqlDate();
 
-        $sql = "INSERT INTO contact (name, email, phone, message, date) 
+        $sql = "INSERT INTO contact (name, email, phone, message, date)
                 VALUES ('$name', '$email', '$phone', '$message', '$date')";
         $created = executeSql($sql);
 

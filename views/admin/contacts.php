@@ -10,7 +10,7 @@
 
         <div class="col-md-12 mb-2" id="contacts">
             <?php
-            if (true === !empty($contacts)) :
+            if (!empty($contacts)) :
                 foreach ($contacts as $contact) {
                     require('views/shared/admin/contactlist.php');
                 }
@@ -21,4 +21,3 @@
         </div>
     </div>
 </div>
-

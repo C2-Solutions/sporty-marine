@@ -1,4 +1,4 @@
 <?php
-if (false == require_once('autoload.php')) {
+if (!require_once('autoload.php')) {
     exit;
 }
