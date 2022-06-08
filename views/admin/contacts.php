@@ -15,7 +15,7 @@
                     require('views/shared/admin/contactlist.php');
                 }
             else :
-                echo 'Er zijn geen contacten beschikbaar.';
+                echo 'Er zijn geen ingezonden berichten beschikbaar.';
             endif;
             ?>
         </div>

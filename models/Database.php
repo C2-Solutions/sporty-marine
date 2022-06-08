@@ -31,4 +31,17 @@ class Database
 
         return false;
     }
+
+    public static function delete($id, $table)
+    {
+        $sql = "DELETE FROM `$table` WHERE `id` = '$id'";
+
+        $result = executeSql($sql);
+
+        if (true === $result) :
+            return true;
+        endif;
+
+        return false;
+    }
 }

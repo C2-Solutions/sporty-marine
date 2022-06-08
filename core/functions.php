@@ -100,6 +100,19 @@ function isAdmin()
     return false;
 }
 
+function postSuccess()
+{
+    if (isset($_SESSION['contactsent'])) :
+        if (!empty(htmlspecialchars($_SESSION['contactsent']))) :
+            return true;
+        endif;
+
+        return false;
+    endif;
+
+    return false;
+}
+
 function convert_date($date, $format = 'd/m/Y')
 {
     return date($format, strtotime($date));
