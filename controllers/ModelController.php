@@ -62,6 +62,17 @@ class ModelController
         endif;
     }
 
+    public function createModel($id)
+    {
+        $content['model'] = false;
+
+        if (!empty(IsAdmin())) :
+            view('admin/create-model', $content);
+        else :
+            view('model', $content);
+        endif;
+    }
+
     public function new()
     {
         $data = array(
@@ -71,6 +82,7 @@ class ModelController
             'width' => htmlspecialchars($_POST['breedte']),
             'weight' => htmlspecialchars($_POST['gewicht']),
             'airdraft' => htmlspecialchars($_POST['vaarthoogte']),
+            'draft' => htmlspecialchars($_POST['diepgang']),
             'maxpk' => htmlspecialchars($_POST['maxpk']),
             'maxpers' => htmlspecialchars($_POST['maxpers']),
             'cec' => htmlspecialchars($_POST['cec']),
@@ -93,14 +105,13 @@ class ModelController
             $submission = $this->models->new($data);
 
             if ($submission) :
-                $_SESSION['modelsent'] = true;
-                redirect('/contact');
+                redirect('/admin-modellen');
             endif;
 
-            redirect('/contact');
+            redirect('/admin-modellen');
         endif;
 
-        redirect('/contact');
+        redirect('/admin-modellen');
     }
 
     public function edit()
@@ -111,6 +122,7 @@ class ModelController
             'width' => htmlspecialchars($_POST['breedte']),
             'weight' => htmlspecialchars($_POST['gewicht']),
             'airdraft' => htmlspecialchars($_POST['vaarthoogte']),
+            'draft' => htmlspecialchars($_POST['diepgang']),
             'maxpk' => htmlspecialchars($_POST['maxpk']),
             'maxpers' => htmlspecialchars($_POST['maxpers']),
             'cec' => htmlspecialchars($_POST['cec']),

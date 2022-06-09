@@ -16,7 +16,8 @@ class Models
         $cec = $data['cec'];
 
         $sql = "INSERT INTO models (name, image, length , width, weight, airdraft, draft, maxpk, maxpers, cec)
-                VALUES ('$name','$image','$length', '$width', '$weight', '$airdraft', '$draft', '$maxpk', '$maxpers', '$cec')";
+                VALUES ('$name','$image','$length', '$width', '$weight', 
+                        '$airdraft', '$draft', '$maxpk', '$maxpers', '$cec')";
         $created = executeSql($sql);
 
         if ($created) {
@@ -38,12 +39,13 @@ class Models
         $maxpers = $data['maxpers'];
         $cec = $data['cec'];
 
-        $sql = "UPDATE models
-        SET length = $length, width = $width, weight = $weight, airdraft = $airdraft, draft = $draft, maxpk = $maxpk, maxpers = $maxpers, cec = $cec
-                WHERE id = $id";
+        $sql = "UPDATE models        
+SET length = '$length', width = '$width', weight = '$weight', airdraft = '$airdraft', 
+    draft = '$draft', maxpk = '$maxpk', maxpers = '$maxpers', cec = '$cec'
+                WHERE id = '$id'";
         $edited = executeSql($sql);
 
-        if ($edited){
+        if ($edited) {
             return true;
         }
         return false;

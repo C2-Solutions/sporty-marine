@@ -1,7 +1,8 @@
 <div class="modellen col">
     <div class="card" id="model_<?php echo $model['id'];?>" style="margin-bottom: 10px">
         <a id="model_<?php echo $model['id']; ?>" href="edit-model?id=<?php echo $model['id']; ?>">
-            <img src="public/img/<?php echo $model['image']; ?>" class="card-img-top" alt="..." style="width: 494px; height: 200px">
+            <img src="public/img/<?php echo $model['image']; ?>"
+                 class="card-img-top" alt="" style="width: 494px; height: 200px">
         </a>
         <div class="card-body">
             <h5 class="card-title"><?php echo $model['name'];?></h5>

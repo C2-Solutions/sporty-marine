@@ -39,8 +39,14 @@ if (!empty($request)) :
             case '/contact':
                 Router::post('ContactController', 'new');
                 break;
+
             case '/edit-model':
                 Router::post('ModelController', 'edit');
+                break;
+
+            case '/create-model':
+                Router::post('ModelController', 'new');
+                break;
             default:
                 view('404');
                 view('shared/footer');
@@ -83,9 +89,7 @@ if (!empty($request)) :
                 break;
 
             case '/create-model':
-                if (!empty($_GET['id'])) :
-                    Router::get('ModelController', 'createModel', htmlspecialchars($_GET['id']));
-                endif;
+                Router::get('ModelController', 'createModel');
                 break;
 
             case '/admin-contacts':
