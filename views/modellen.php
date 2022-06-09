@@ -1,4 +1,4 @@
-<?php echo '<h1>Dit is een modellenpagina</h1>'; ?>
+<?php echo '<h1 style="font-size: 40px; color: dimgray; text-align: center">Dit is de modellenpagina</h1>'; ?>
 
 <!--<center><h1>Sporty</h1></center>-->
 <!--<hr class="bg-grey border-2 border-top border-grey">-->
