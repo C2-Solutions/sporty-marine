@@ -111,6 +111,7 @@ class ModelController
             'width' => htmlspecialchars($_POST['breedte']),
             'weight' => htmlspecialchars($_POST['gewicht']),
             'airdraft' => htmlspecialchars($_POST['vaarthoogte']),
+            'draft' => htmlspecialchars($_POST['diepgang']),
             'maxpk' => htmlspecialchars($_POST['maxpk']),
             'maxpers' => htmlspecialchars($_POST['maxpers']),
             'cec' => htmlspecialchars($_POST['cec']),

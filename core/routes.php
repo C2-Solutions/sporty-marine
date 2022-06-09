@@ -41,6 +41,7 @@ if (!empty($request)) :
                 break;
             case '/edit-model':
                 Router::post('ModelController', 'edit');
+                break;
             default:
                 view('404');
                 view('shared/footer');

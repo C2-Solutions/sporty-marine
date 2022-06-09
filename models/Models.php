@@ -39,8 +39,9 @@ class Models
         $cec = $data['cec'];
 
         $sql = "UPDATE models
-        SET length = $length, width = $width, weight = $weight, airdraft = $airdraft, draft = $draft, maxpk = $maxpk, maxpers = $maxpers, cec = $cec
-                WHERE id = $id";
+        SET length = '$length', width = '$width', weight = '$weight', airdraft = '$airdraft', draft = '$draft', maxpk = '$maxpk', maxpers = '$maxpers', cec = '$cec'
+                WHERE id = '$id'";
+
         $edited = executeSql($sql);
 
         if ($edited){
