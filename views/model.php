@@ -50,10 +50,6 @@
                         <td>Status:</td>
                         <td><?php echo $model['status']; ?></td>
                     </tr>
-                    <tr>
-                        <td>Beschikbaarheid:</td>
-                        <td><?php echo $model['cec']; ?></td>
-                    </tr>
                 </table>
                 <table class="model-info-table" style="width: 50%">
                     <tr>
