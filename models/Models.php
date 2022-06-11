@@ -19,7 +19,8 @@ class Models
         $availability = $data['availability'];
 
         $sql = "INSERT INTO models 
-                (name, price, length , width, weight, airdraft, draft, maxpk, maxpers, builtin, cec, status, availability)
+                (name, price, length , width, weight, airdraft, draft, 
+                 maxpk, maxpers, builtin, cec, status, availability)
                 VALUES 
                ('$name', '$price', '$length', '$width', '$weight', '$airdraft',
                 '$draft', '$maxpk', '$maxpers', '$builtin', '$cec', '$status', '$availability')";

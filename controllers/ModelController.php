@@ -61,6 +61,11 @@ class ModelController
 
         $model = $this->database->getById($id, 'models');
 
+        if (!$model) :
+            redirect('/admin-modellen');
+            exit;
+        endif;
+
         if (!empty($model)) :
             $content['model'] = $model;
         endif;
