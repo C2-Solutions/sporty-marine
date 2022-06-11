@@ -1,10 +1,7 @@
-create database flevonautica;
+CREATE DATABASE IF NOT EXISTS flevonautica;
+USE flevonautica;
 
-show databases;
-
-use flevonautica;
-
-create table models
+CREATE TABLE IF NOT EXISTS models
 (
     id      int auto_increment primary key,
     name    varchar(100) not null,
@@ -24,21 +21,21 @@ create table models
     description     text
 );
 
-create table admins
+CREATE TABLE IF NOT EXISTS admins
 (
-    id      int auto_increment primary key,
-    username varchar(255) not null,
-    password text not null
+    id INT auto_increment PRIMARY KEY,
+    username VARCHAR(255) NOT NULL,
+    password TEXT NOT NULL
 );
 
-create table contact
+CREATE TABLE IF NOT EXISTS contact
 (
-    id      int auto_increment primary key,
-    name    varchar(40) not null,
-    email  varchar(100) not null,
-    phone   varchar(100) null,
-    message text not null,
-    date date
+    id INT auto_increment PRIMARY KEY,
+    name VARCHAR(40) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    phone VARCHAR(100) null,
+    message TEXT NOT NULL,
+    date DATE
 );
 
 -- Create temporary admin users
