@@ -11,7 +11,7 @@ if (!isAdmin()) :
         case 'admin-modellen':
         case 'edit-model':
         case 'delete-model':
-        case 'create-model':
+        case 'new-model':
         case 'admin-contacts':
         case 'admin-contact':
         case 'delete-contact':

@@ -34,14 +34,19 @@ class ModelController
 
         $model = $this->database->getById($id, 'models');
 
+        if (!$model) :
+            redirect('/modellen');
+            exit;
+        endif;
+
         if (!empty($model)) :
             $content['model'] = $model;
         endif;
 
-        if (!empty(IsAdmin())) :
-            view('admin-model', $content);
-        else :
+        if ($model['availability'] == 1) :
             view('model', $content);
+        else :
+            redirect('/modellen');
         endif;
     }
 
@@ -55,17 +60,14 @@ class ModelController
             $content['model'] = $model;
         endif;
 
-        if (!empty(IsAdmin())) :
-            view('admin/edit-model', $content);
-        else :
-            view('model', $content);
-        endif;
+        view('admin/edit-model', $content);
     }
 
     public function new()
     {
         $data = array(
             'name' => htmlspecialchars($_POST['name']),
+            'price' => htmlspecialchars($_POST['prijs']),
             'image' => htmlspecialchars($_POST['image']),
             'length' => htmlspecialchars($_POST['lengte']),
             'width' => htmlspecialchars($_POST['breedte']),
@@ -73,13 +75,17 @@ class ModelController
             'airdraft' => htmlspecialchars($_POST['vaarthoogte']),
             'maxpk' => htmlspecialchars($_POST['maxpk']),
             'maxpers' => htmlspecialchars($_POST['maxpers']),
+            'builtin' => htmlspecialchars($_POST['bouwjaar']),
             'cec' => htmlspecialchars($_POST['cec']),
+            'status' => htmlspecialchars($_POST['status']),
+            'availability' => htmlspecialchars($_POST['beschikbaarheid']),
         );
 
         if (
             is_array($data) &&
             !empty($data) &&
             !empty($data['name']) &&
+            !empty($data['price']) &&
             !empty($data['image']) &&
             !empty($data['length']) &&
             !empty($data['width']) &&
@@ -88,7 +94,10 @@ class ModelController
             !empty($data['draft']) &&
             !empty($data['maxpk']) &&
             !empty($data['maxpers']) &&
-            !empty($data['cec'])
+            !empty($data['builtin']) &&
+            !empty($data['cec']) &&
+            !empty($data['status']) &&
+            !empty($data['availability'])
         ) :
             $submission = $this->models->new($data);
 
@@ -97,16 +106,17 @@ class ModelController
                 redirect('/contact');
             endif;
 
-            redirect('/contact');
+            redirect('/error');
         endif;
 
-        redirect('/contact');
+        redirect('/error2');
     }
 
     public function edit()
     {
         $data = array(
             'id' => $_POST['id'],
+            'price' => htmlspecialchars($_POST['prijs']),
             'length' => htmlspecialchars($_POST['lengte']),
             'width' => htmlspecialchars($_POST['breedte']),
             'weight' => htmlspecialchars($_POST['gewicht']),
@@ -114,12 +124,16 @@ class ModelController
             'draft' => htmlspecialchars($_POST['diepgang']),
             'maxpk' => htmlspecialchars($_POST['maxpk']),
             'maxpers' => htmlspecialchars($_POST['maxpers']),
+            'builtin' => htmlspecialchars($_POST['bouwjaar']),
             'cec' => htmlspecialchars($_POST['cec']),
+            'status' => htmlspecialchars($_POST['status']),
+            'availability' => htmlspecialchars($_POST['beschikbaarheid']),
         );
         if (
             is_array($data) &&
             !empty($data) &&
             !empty(($data['id'])) &&
+            !empty($data['price']) &&
             !empty($data['length']) &&
             !empty($data['width']) &&
             !empty($data['weight']) &&
@@ -127,18 +141,23 @@ class ModelController
             !empty($data['draft']) &&
             !empty($data['maxpk']) &&
             !empty($data['maxpers']) &&
-            !empty($data['cec'])
+            !empty($data['builtin']) &&
+            !empty($data['cec']) &&
+            !empty($data['status']) &&
+            !empty($data['availability'])
         ) :
             $submission = $this->models->edit($data);
 
             if ($submission) :
                 redirect("/admin-modellen");
+                exit;
             endif;
 
-            redirect("/admin-modellen");
+            redirect("/error");
+            exit;
         endif;
 
-        redirect("/admin-modellen");
+        redirect("/error2");
     }
 
     public function delete($id)
