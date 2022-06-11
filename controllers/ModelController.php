@@ -50,6 +50,11 @@ class ModelController
         endif;
     }
 
+    public function newModel()
+    {
+        view('admin/new-model');
+    }
+
     public function editModel($id)
     {
         $content['model'] = false;

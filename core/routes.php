@@ -40,12 +40,12 @@ if (!empty($request)) :
                 Router::post('ContactController', 'new');
                 break;
 
-            case '/edit-model':
-                Router::post('ModelController', 'edit');
+            case '/new-model':
+                Router::post('ModelController', 'new');
                 break;
 
-            case '/create-model':
-                Router::post('ModelController', 'new');
+            case '/edit-model':
+                Router::post('ModelController', 'edit');
                 break;
             default:
                 view('404');
@@ -84,6 +84,10 @@ if (!empty($request)) :
 
             case '/admin-dashboard':
                 Router::get('AdminController', 'dashboardIndex');
+                break;
+
+            case '/new-model':
+                Router::get('ModelController', 'newModel');
                 break;
 
             case '/edit-model':

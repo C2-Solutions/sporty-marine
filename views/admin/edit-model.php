@@ -17,9 +17,9 @@ $availability = $model['availability'];
                         Prijs:
                     </label><br>
 
-                    <span>€ </span>
                     <input type="number" inputmode="numeric" step="0.01" min="0" id="prijs" name="prijs" required
-                           autofocus value="<?php echo $model['price']; ?>"><br>
+                           autofocus value="<?php echo $model['price']; ?>">
+                    <span>euro</span><br>
 
                     <label for="lengte">
                         Lengte:
