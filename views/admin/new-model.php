@@ -1,24 +1,24 @@
 <?php
-$cec = $model['cec'];
-$status = $model['status'];
-$availability = $model['availability'];
 ?>
 <div class="container" style="width: 60%; margin-top: 10px; margin-bottom: 20px">
     <div class="row">
-        <div class="card" id="model_<?php echo $model['id']; ?>">
-            <img src="public/img/<?php echo $model['image']; ?>"
-                 class="card-img-top" alt="..." style="margin-top: 10px">
+        <div class="card">
             <div class="card-body">
-                <h5 class="card-title"><?php echo $model['name']; ?></h5>
+                <h5 class="card-title"></h5>
                 <p class="card-text">
-                <form method="post" action="/edit-model" class="model-info-form" style="float: left; width: 50%">
-                    <input type="hidden" name="id" value="<?php echo $model['id']; ?>">
+                <form method="post" action="/new-model" class="model-info-form" style="float: left; width: 50%">
+                    <label for="naam">
+                        Naam:
+                    </label><br>
+
+                    <input type="text" id="naam" name="naam" required autofocus placeholder="Sporty 1"><br>
+
                     <label for="prijs">
                         Prijs:
                     </label><br>
 
-                    <input type="number" inputmode="numeric" step="0.01" min="0" id="prijs" name="prijs" required
-                           autofocus value="<?php echo $model['price']; ?>">
+                    <input type="number" inputmode="numeric" min="0" id="prijs" name="prijs" required
+                           placeholder="15000">
                     <span>euro</span><br>
 
                     <label for="lengte">
@@ -26,7 +26,7 @@ $availability = $model['availability'];
                     </label><br>
 
                     <input type="number" inputmode="numeric" id="lengte" name="lengte" required
-                           value="<?php echo $model['length']; ?>">
+                           placeholder="5.50">
                     <span>m</span><br>
 
                     <label for="breedte">
@@ -34,7 +34,7 @@ $availability = $model['availability'];
                     </label><br>
 
                     <input type="number" inputmode="numeric" id="breedte" name="breedte" required
-                           value="<?php echo $model['width']; ?>">
+                           placeholder="3.50">
                     <span>m</span><br>
 
                     <label for="gewicht">
@@ -42,7 +42,7 @@ $availability = $model['availability'];
                     </label><br>
 
                     <input type="number" inputmode="numeric" id="gewicht" name="gewicht" required
-                           value="<?php echo $model['weight']; ?>">
+                           placeholder="500">
                     <span>kg</span><br>
 
                     <label for="vaarthoogte">
@@ -50,7 +50,7 @@ $availability = $model['availability'];
                     </label><br>
 
                     <input type="number" inputmode="numeric" id="vaarthoogte" name="vaarthoogte" required
-                           value="<?php echo $model['airdraft']; ?>">
+                           placeholder="85">
                     <span>cm</span><br>
 
                     <label for="diepgang">
@@ -58,7 +58,7 @@ $availability = $model['availability'];
                     </label><br>
 
                     <input type="number" inputmode="numeric" id="diepgang" name="diepgang" required
-                           value="<?php echo $model['draft']; ?>">
+                           placeholder="25">
                     <span>cm</span><br>
 
                     <label for="maxpk">
@@ -66,7 +66,7 @@ $availability = $model['availability'];
                     </label><br>
 
                     <input type="number" inputmode="numeric" id="maxpk" name="maxpk" required
-                           value="<?php echo $model['maxpk']; ?>">
+                           placeholder="30">
                     <span>Pk</span><br>
 
                     <label for="maxpers">
@@ -74,7 +74,7 @@ $availability = $model['availability'];
                     </label><br>
 
                     <input type="number" inputmode="numeric" id="maxpers" name="maxpers" required
-                           value="<?php echo $model['maxpers']; ?>"><br>
+                           placeholder="7"><br>
 
                     <label for="bouwjaar">
                         Bouwjaar:
@@ -82,21 +82,21 @@ $availability = $model['availability'];
 
                     <input type="number" min="1900" max="2099" step="1" inputmode="numeric"
                            id="bouwjaar" name="bouwjaar" required
-                           value="<?php echo $model['builtin']; ?>"><br>
+                           placeholder="2020"><br>
 
                     <label for="cec">
                         CE Categorie:
                     </label>
 
                     <select type="option" id="cec" name="cec" required">
-                        <option value="A" <?php echo ($cec == 'A') ? 'selected' : ''?>>
-                            A</option>
-                        <option value="B" <?php echo ($cec == 'B') ? 'selected' : ''?>>
-                            B</option>
-                        <option value="C" <?php echo ($cec == 'C') ? 'selected' : ''?>>
-                            C</option>
-                        <option value="D" <?php echo ($cec == 'D') ? 'selected' : ''?>>
-                            D</option>
+                    <option value="A">
+                        A</option>
+                    <option value="B">
+                        B</option>
+                    <option value="C">
+                        C</option>
+                    <option value="D">
+                        D</option>
                     </select><br>
 
                     <label for="status">
@@ -104,12 +104,12 @@ $availability = $model['availability'];
                     </label>
 
                     <select type="option" id="status" name="status" required">
-                        <option value="Nieuw" <?php echo ($status == 'Nieuw') ? 'selected' : ''?>>
-                            Nieuw</option>
-                        <option value="Demo" <?php echo ($status == 'Demo') ? 'selected' : ''?>>
-                            Demo</option>
-                        <option value="Occasion" <?php echo ($status == 'Occasion') ? 'selected' : ''?>>
-                            Occasion</option>
+                    <option value="Nieuw">
+                        Nieuw</option>
+                    <option value="Demo">
+                        Demo</option>
+                    <option value="Occasion">
+                        Occasion</option>
                     </select><br>
 
                     <label for="beschikbaarheid">
@@ -117,13 +117,13 @@ $availability = $model['availability'];
                     </label>
 
                     <select type="option" id="beschikbaarheid" name="beschikbaarheid" required">
-                        <option value="1" <?php echo ($availability == '1') ? 'selected' : ''?>>
-                            Beschikbaar</option>
-                        <option value="0" <?php echo ($availability == '0') ? 'selected' : ''?>>
-                            Niet beschikbaar</option>
+                    <option value="1">
+                        Beschikbaar</option>
+                    <option value="0">
+                        Niet beschikbaar</option>
                     </select><br>
 
-                    <input type="submit" name="edit" value="Update" class="btn btn-primary">
+                    <input type="submit" name="new" value="Opslaan" class="btn btn-primary">
                 </form>
                 <table class="model-info-table" style="width: 50%">
                     <tr>
