@@ -61,7 +61,7 @@ if (!empty($request)) :
                 break;
 
             case '/over-ons':
-                Router::get('HomeController','about');
+                Router::get('HomeController', 'about');
                 break;
 
             case '/model':
