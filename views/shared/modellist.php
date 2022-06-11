@@ -37,7 +37,7 @@
                 </tr>
                 <tr>
                     <td>CE Categorie:</td>
-                    <td><?php echo $model['cec'];?></td>
+                    <td>Cat <?php echo $model['cec'];?></td>
                 </tr>
             </table>
             </p>

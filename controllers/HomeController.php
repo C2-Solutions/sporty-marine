@@ -6,4 +6,9 @@ class HomeController
     {
         view('home');
     }
+
+    public function about()
+    {
+        view('about');
+    }
 }
