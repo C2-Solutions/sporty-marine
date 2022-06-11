@@ -5,6 +5,7 @@ class Models
     public function new($data)
     {
         $name = $data['name'];
+        $price = $data['price'];
         $image = $data['image'];
         $length = $data['length'];
         $width = $data['width'];
@@ -13,11 +14,15 @@ class Models
         $draft = $data['draft'];
         $maxpk = $data['maxpk'];
         $maxpers = $data['maxpers'];
+        $builtin = $data['builtin'];
         $cec = $data['cec'];
+        $status = $data['status'];
 
-        $sql = "INSERT INTO models (name, image, length , width, weight, airdraft, draft, maxpk, maxpers, cec)
-                VALUES ('$name','$image','$length', '$width', '$weight', 
-                        '$airdraft', '$draft', '$maxpk', '$maxpers', '$cec')";
+        $sql = "INSERT INTO models 
+                (name, price, image, length , width, weight, airdraft, draft, maxpk, maxpers, builtin, cec, status)
+                VALUES 
+               ('$name', '$price', '$image', '$length', '$width', '$weight', '$airdraft',
+                '$draft', '$maxpk', '$maxpers', '$builtin', '$cec', '$status')";
         $created = executeSql($sql);
 
         if ($created) {
@@ -30,6 +35,7 @@ class Models
     public function edit($data)
     {
         $id = $data['id'];
+        $price = $data['price'];
         $length = $data['length'];
         $width = $data['width'];
         $weight = $data['weight'];
@@ -37,11 +43,24 @@ class Models
         $draft = $data['draft'];
         $maxpk = $data['maxpk'];
         $maxpers = $data['maxpers'];
+        $builtin = $data['builtin'];
         $cec = $data['cec'];
+        $status = $data['status'];
+        $availability = $data['availability'];
 
-        $sql = "UPDATE models        
-SET length = '$length', width = '$width', weight = '$weight', airdraft = '$airdraft', 
-    draft = '$draft', maxpk = '$maxpk', maxpers = '$maxpers', cec = '$cec'
+        $sql = "UPDATE models
+        SET price = '$price',
+            length = '$length', 
+            width = '$width', 
+            weight = '$weight', 
+            airdraft = '$airdraft', 
+            draft = '$draft', 
+            maxpk = '$maxpk', 
+            maxpers = '$maxpers', 
+            builtin = '$builtin',
+            cec = '$cec',
+            status = '$status',
+            availability = '$availability'
                 WHERE id = '$id'";
         $edited = executeSql($sql);
 

@@ -35,6 +35,11 @@ class ContactController
 
         $contact = $this->database->getById($id, 'contact');
 
+        if (!$contact) :
+            redirect('/admin-contacts');
+            exit;
+        endif;
+
         if (!empty($contact)) :
             $content['contact'] = $contact;
         endif;
