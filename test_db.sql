@@ -1,38 +1,41 @@
-CREATE DATABASE IF NOT EXISTS flevonautica;
-USE flevonautica;
+create database flevonautica;
 
-CREATE TABLE IF NOT EXISTS models
+show databases;
+
+use flevonautica;
+
+create table models
 (
-    id INT auto_increment PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
-    image VARCHAR(255),
-    length DECIMAL(10,2) NOT NULL,
-    width DECIMAL(10,2) NOT NULL,
-    weight DECIMAL(10,2) NOT NULL,
-    airdraft DECIMAL(5,2) NOT NULL,
-    draft DECIMAL(5,2) NOT NULL,
-    maxpk INT(5) NOT NULL,
-    maxpers INT(4) NOT NULL,
-    cec VARCHAR(20)
+    id      int auto_increment primary key,
+    name    varchar(100) not null,
+    price   int(9) cast(12345.678 as money) not null,
+    image   varchar(255),
+    length  decimal(5,2) not null,
+    width   decimal(5,2) not null,
+    weight  int(5) not null,
+    airdraft int(5) not null,
+    draft   int(5) not null,
+    maxpk   int(4) not null,
+    maxpers int(3) not null,
+    builtin int(4) not null,
+    cec     varchar(2),
+    status    varchar(10) not null,
+    availability    boolean
 );
 
-CREATE TABLE IF NOT EXISTS admins
+create table admins
 (
-    id INT auto_increment PRIMARY KEY,
-    username VARCHAR(255) NOT NULL,
-    password TEXT NOT NULL
+    id      int auto_increment primary key,
+    username varchar(255) not null,
+    password text not null
 );
 
-CREATE TABLE IF NOT EXISTS contact
+create table contact
 (
-    id INT auto_increment PRIMARY KEY,
-    name VARCHAR(40) NOT NULL,
-    email VARCHAR(100) NOT NULL,
-    phone VARCHAR(100) null,
-    message TEXT NOT NULL,
-    date DATE
+    id      int auto_increment primary key,
+    name    varchar(40) not null,
+    email  varchar(100) not null,
+    phone   varchar(100) null,
+    message text not null,
+    date date
 );
-
--- Create temporary admin users
-INSERT INTO admins (username, password)
-VALUES ('admin', 'password123')
