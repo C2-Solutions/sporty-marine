@@ -71,9 +71,8 @@ class ModelController
     public function new()
     {
         $data = array(
-            'name' => htmlspecialchars($_POST['name']),
+            'name' => htmlspecialchars($_POST['naam']),
             'price' => htmlspecialchars($_POST['prijs']),
-            'image' => htmlspecialchars($_POST['image']),
             'length' => htmlspecialchars($_POST['lengte']),
             'width' => htmlspecialchars($_POST['breedte']),
             'weight' => htmlspecialchars($_POST['gewicht']),
@@ -92,7 +91,6 @@ class ModelController
             !empty($data) &&
             !empty($data['name']) &&
             !empty($data['price']) &&
-            !empty($data['image']) &&
             !empty($data['length']) &&
             !empty($data['width']) &&
             !empty($data['weight']) &&
@@ -102,8 +100,7 @@ class ModelController
             !empty($data['maxpers']) &&
             !empty($data['builtin']) &&
             !empty($data['cec']) &&
-            !empty($data['status']) &&
-            !empty($data['availability'])
+            !empty($data['status'])
         ) :
             $submission = $this->models->new($data);
 
@@ -112,6 +109,7 @@ class ModelController
             endif;
 
             redirect('/error');
+            exit;
         endif;
 
         redirect('/error2');
@@ -148,8 +146,7 @@ class ModelController
             !empty($data['maxpers']) &&
             !empty($data['builtin']) &&
             !empty($data['cec']) &&
-            !empty($data['status']) &&
-            !empty($data['availability'])
+            !empty($data['status'])
         ) :
             $submission = $this->models->edit($data);
 

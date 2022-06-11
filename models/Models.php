@@ -6,7 +6,6 @@ class Models
     {
         $name = $data['name'];
         $price = $data['price'];
-        $image = $data['image'];
         $length = $data['length'];
         $width = $data['width'];
         $weight = $data['weight'];
@@ -17,12 +16,13 @@ class Models
         $builtin = $data['builtin'];
         $cec = $data['cec'];
         $status = $data['status'];
+        $availability = $data['availability'];
 
         $sql = "INSERT INTO models 
-                (name, price, image, length , width, weight, airdraft, draft, maxpk, maxpers, builtin, cec, status)
+                (name, price, length , width, weight, airdraft, draft, maxpk, maxpers, builtin, cec, status, availability)
                 VALUES 
-               ('$name', '$price', '$image', '$length', '$width', '$weight', '$airdraft',
-                '$draft', '$maxpk', '$maxpers', '$builtin', '$cec', '$status')";
+               ('$name', '$price', '$length', '$width', '$weight', '$airdraft',
+                '$draft', '$maxpk', '$maxpers', '$builtin', '$cec', '$status', '$availability')";
         $created = executeSql($sql);
 
         if ($created) {

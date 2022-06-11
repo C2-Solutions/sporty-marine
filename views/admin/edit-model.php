@@ -25,7 +25,7 @@ $availability = $model['availability'];
                         Lengte:
                     </label><br>
 
-                    <input type="number" inputmode="numeric" id="lengte" name="lengte" required
+                    <input type="number" step="0.01" inputmode="numeric" id="lengte" name="lengte" required
                            value="<?php echo $model['length']; ?>">
                     <span>m</span><br>
 
@@ -33,7 +33,7 @@ $availability = $model['availability'];
                         Breedte:
                     </label><br>
 
-                    <input type="number" inputmode="numeric" id="breedte" name="breedte" required
+                    <input type="number" step="0.01" inputmode="numeric" id="breedte" name="breedte" required
                            value="<?php echo $model['width']; ?>">
                     <span>m</span><br>
 

@@ -25,7 +25,7 @@
                         Lengte:
                     </label><br>
 
-                    <input type="number" inputmode="numeric" id="lengte" name="lengte" required
+                    <input type="number" step="0.01" inputmode="numeric" id="lengte" name="lengte" required
                            placeholder="5.50">
                     <span>m</span><br>
 
@@ -33,7 +33,7 @@
                         Breedte:
                     </label><br>
 
-                    <input type="number" inputmode="numeric" id="breedte" name="breedte" required
+                    <input type="number" step="0.01" inputmode="numeric" id="breedte" name="breedte" required
                            placeholder="3.50">
                     <span>m</span><br>
 

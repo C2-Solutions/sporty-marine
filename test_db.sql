@@ -8,7 +8,7 @@ create table models
 (
     id      int auto_increment primary key,
     name    varchar(100) not null,
-    price   int(9) cast(12345.678 as money) not null,
+    price   int(9) not null,
     image   varchar(255),
     length  decimal(5,2) not null,
     width   decimal(5,2) not null,
