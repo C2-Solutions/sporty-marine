@@ -138,7 +138,6 @@ $availability = $model['availability'];
                 </div>
                 </form>
             </div>
-
         </div>
     </div>
 </div>
