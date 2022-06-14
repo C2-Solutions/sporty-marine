@@ -15,6 +15,7 @@
                               style="border-style: none; border-color: transparent; outline: none"
                               ><?php echo $model['description']; ?></textarea>
                 </div>
+
                 <table class="model-info-table" style="float: left; width: 50%">
                     <tr>
                         <th>Boot details:</th>

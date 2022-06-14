@@ -89,7 +89,7 @@ $availability = $model['availability'];
                             CE Categorie:
                         </label>
 
-                        <select type="option" id="cec" name="cec" required>
+                        <select id="cec" name="cec" required>
                             <option value="A" <?php echo ($cec == 'A') ? 'selected' : ''?>>
                                 A</option>
                             <option value="B" <?php echo ($cec == 'B') ? 'selected' : ''?>>
@@ -104,7 +104,7 @@ $availability = $model['availability'];
                             Status:
                         </label>
 
-                        <select type="option" id="status" name="status" required>
+                        <select id="status" name="status" required>
                             <option value="Nieuw" <?php echo ($status == 'Nieuw') ? 'selected' : ''?>>
                                 Nieuw</option>
                             <option value="Demo" <?php echo ($status == 'Demo') ? 'selected' : ''?>>
@@ -117,7 +117,7 @@ $availability = $model['availability'];
                             Beschikbaar?
                         </label>
 
-                        <select type="option" id="beschikbaarheid" name="beschikbaarheid" required>
+                        <select id="beschikbaarheid" name="beschikbaarheid" required>
                             <option value="1" <?php echo ($availability == '1') ? 'selected' : ''?>>
                                 Beschikbaar</option>
                             <option value="0" <?php echo ($availability == '0') ? 'selected' : ''?>>
@@ -130,7 +130,7 @@ $availability = $model['availability'];
                         Beschrijving
                     </label><br>
 
-                    <textarea id="beschrijving" name="beschrijving", rows="20" cols="50"
+                    <textarea id="beschrijving" name="beschrijving" rows="20" cols="50"
                               placeholder="Vul hier in wat je verder nog wilt vertellen over de boot"
                     ><?php echo $model['description']; ?></textarea>
                     <input type="submit" name="new" value="Alles opslaan" class="btn btn-primary"

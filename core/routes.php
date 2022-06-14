@@ -66,6 +66,10 @@ if (!empty($request)) :
                 Router::get('ModelController', 'index');
                 break;
 
+            case '/over-ons':
+                Router::get('HomeController', 'about');
+                break;
+
             case '/model':
                 if (!empty($_GET['id'])) :
                     Router::get('ModelController', 'modelInformation', htmlspecialchars($_GET['id']));
