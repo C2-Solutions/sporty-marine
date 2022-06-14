@@ -39,6 +39,14 @@ if (!empty($request)) :
             case '/contact':
                 Router::post('ContactController', 'new');
                 break;
+
+            case '/edit-model':
+                Router::post('ModelController', 'edit');
+                break;
+
+            case '/create-model':
+                Router::post('ModelController', 'new');
+                break;
             default:
                 view('404');
                 view('shared/footer');
@@ -84,6 +92,10 @@ if (!empty($request)) :
                 endif;
                 break;
 
+            case '/create-model':
+                Router::get('ModelController', 'createModel');
+                break;
+
             case '/admin-contacts':
                 Router::get('ContactController', 'adminContactIndex');
                 break;
@@ -97,6 +109,12 @@ if (!empty($request)) :
             case '/delete-contact':
                 if (!empty($_GET['id'])) :
                     Router::get('ContactController', 'delete', htmlspecialchars($_GET['id']));
+                endif;
+
+                break;
+            case '/delete-model':
+                if (!empty($_GET['id'])) :
+                    Router::get('ModelController', 'delete', htmlspecialchars($_GET['id']));
                 endif;
                 break;
 

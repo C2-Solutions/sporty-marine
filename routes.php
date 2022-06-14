@@ -17,6 +17,7 @@
 $router->define([
     ''           => 'controllers/home.controller.php',
     'modellen'   => 'controllers/modellen.controller.php',
+    'edit-model' => 'controllers/modellen.controller.php',
     'contact'    => 'controllers/contact.controller.php',
     'model'      => 'controllers/model.controller.php',
     'adminLogin' => 'controllers/adminLogin.controller.php'
