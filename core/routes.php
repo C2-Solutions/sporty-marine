@@ -39,13 +39,11 @@ if (!empty($request)) :
             case '/contact':
                 Router::post('ContactController', 'new');
                 break;
-
+            case '/new-model':
+                Router::post('ModelController', 'new');
+                break;
             case '/edit-model':
                 Router::post('ModelController', 'edit');
-                break;
-
-            case '/create-model':
-                Router::post('ModelController', 'new');
                 break;
             default:
                 view('404');
@@ -68,10 +66,6 @@ if (!empty($request)) :
                 Router::get('ModelController', 'index');
                 break;
 
-            case '/over-ons':
-                Router::get('HomeController', 'about');
-                break;
-
             case '/model':
                 if (!empty($_GET['id'])) :
                     Router::get('ModelController', 'modelInformation', htmlspecialchars($_GET['id']));
@@ -86,6 +80,10 @@ if (!empty($request)) :
                 Router::get('AdminController', 'dashboardIndex');
                 break;
 
+            case '/new-model':
+                Router::get('ModelController', 'newModel');
+                break;
+
             case '/edit-model':
                 if (!empty($_GET['id'])) :
                     Router::get('ModelController', 'editModel', htmlspecialchars($_GET['id']));
@@ -93,7 +91,9 @@ if (!empty($request)) :
                 break;
 
             case '/create-model':
-                Router::get('ModelController', 'createModel');
+                if (!empty($_GET['id'])) :
+                    Router::get('ModelController', 'createModel', htmlspecialchars($_GET['id']));
+                endif;
                 break;
 
             case '/admin-contacts':
