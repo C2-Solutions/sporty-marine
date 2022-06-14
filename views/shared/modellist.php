@@ -32,8 +32,9 @@
                     $avail = $model['availability'];
                     ?>
                     <tr>
-                        <td>Beschikbaar?</td>
-                        <td><?php echo $avail == 1 ? 'Ja' : 'Nee'?></td>
+                        <td style="color: <?php echo $avail == 1 ? 'green' : 'red'?>">
+                            <?php echo $avail == 1 ? 'Zichtbaar voor klanten' : 'Niet zichtbaar voor klanten'?>
+                        </td>
                     </tr>
                     <?php
                 endif;

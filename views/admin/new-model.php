@@ -4,9 +4,11 @@
     <div class="row">
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title"></h5>
+                <h5 class="card-title">Nieuw Model</h5>
                 <p class="card-text">
-                <form method="post" action="/new-model" class="model-info-form" style="float: left; width: 50%">
+                <form method="post" action="/new-model" class="model-info-form">
+
+                <div style="float: left; width: 50%;">
                     <label for="naam">
                         Naam:
                     </label><br>
@@ -88,65 +90,56 @@
                         CE Categorie:
                     </label>
 
-                    <select type="option" id="cec" name="cec" required">
-                    <option value="A">
-                        A</option>
-                    <option value="B">
-                        B</option>
-                    <option value="C">
-                        C</option>
-                    <option value="D">
-                        D</option>
+                    <select id="cec" name="cec" required>
+                        <option value="A">
+                            A</option>
+                        <option value="B">
+                            B</option>
+                        <option value="C">
+                            C</option>
+                        <option value="D">
+                            D</option>
                     </select><br>
 
                     <label for="status">
                         Status:
                     </label>
 
-                    <select type="option" id="status" name="status" required">
-                    <option value="Nieuw">
-                        Nieuw</option>
-                    <option value="Demo">
-                        Demo</option>
-                    <option value="Occasion">
-                        Occasion</option>
-                    </select><br>
+                    <select id="status" name="status" required>
+                        <option value="Nieuw">
+                            Nieuw</option>
+                        <option value="Demo">
+                            Demo</option>
+                        <option value="Occasion">
+                            Occasion</option>
+                    </select>
+                    <br>
 
                     <label for="beschikbaarheid">
                         Beschikbaar?
                     </label>
 
-                    <select type="option" id="beschikbaarheid" name="beschikbaarheid" required">
-                    <option value="1">
-                        Beschikbaar</option>
-                    <option value="0">
-                        Niet beschikbaar</option>
+                    <select id="beschikbaarheid" name="beschikbaarheid" required>
+                        <option value="1">
+                            Beschikbaar</option>
+                        <option value="0">
+                            Niet beschikbaar</option>
                     </select><br>
+                </div>
 
-                    <input type="submit" name="new" value="Opslaan" class="btn btn-primary">
-                </form>
-                <table class="model-info-table" style="width: 50%">
-                    <tr>
-                        <th>Boot beschrijving:</th>
-                    </tr>
-                    <tr>
-                        <td>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        </td>
-                    </tr>
-                </table>
+                    <div style="float: right; width: 50%; text-align: center;">
+                        <label for="beschrijving">
+                            Beschrijving
+                        </label><br>
+
+                        <textarea id="beschrijving" name="beschrijving", rows="20" cols="50"
+                                  placeholder="Vul hier in wat je verder nog wilt vertellen over de boot"></textarea>
+                        <input type="submit" name="new" value="Alles opslaan" class="btn btn-primary"
+                               onclick="return confirm('Weet je zeker dat je dit wilt opslaan?')">
+                    </div>
+                    </form>
                 </p>
             </div>
-
         </div>
     </div>
 </div>
