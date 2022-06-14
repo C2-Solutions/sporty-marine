@@ -89,6 +89,7 @@ class ModelController
             'cec' => htmlspecialchars($_POST['cec']),
             'status' => htmlspecialchars($_POST['status']),
             'availability' => htmlspecialchars($_POST['beschikbaarheid']),
+            'description' => htmlspecialchars($_POST['beschrijving']),
         );
 
         if (
@@ -138,6 +139,7 @@ class ModelController
             'cec' => htmlspecialchars($_POST['cec']),
             'status' => htmlspecialchars($_POST['status']),
             'availability' => htmlspecialchars($_POST['beschikbaarheid']),
+            'description' => htmlspecialchars($_POST['beschrijving']),
         );
         if (
             is_array($data) &&

@@ -17,13 +17,14 @@ class Models
         $cec = $data['cec'];
         $status = $data['status'];
         $availability = $data['availability'];
+        $description = $data['description'];
 
         $sql = "INSERT INTO models 
                 (name, price, length , width, weight, airdraft, draft, 
-                 maxpk, maxpers, builtin, cec, status, availability)
+                 maxpk, maxpers, builtin, cec, status, availability, description)
                 VALUES 
                ('$name', '$price', '$length', '$width', '$weight', '$airdraft',
-                '$draft', '$maxpk', '$maxpers', '$builtin', '$cec', '$status', '$availability')";
+                '$draft', '$maxpk', '$maxpers', '$builtin', '$cec', '$status', '$availability', '$description')";
         $created = executeSql($sql);
 
         if ($created) {
@@ -48,6 +49,7 @@ class Models
         $cec = $data['cec'];
         $status = $data['status'];
         $availability = $data['availability'];
+        $description = $data['description'];
 
         $sql = "UPDATE models
         SET price = '$price',
@@ -61,7 +63,8 @@ class Models
             builtin = '$builtin',
             cec = '$cec',
             status = '$status',
-            availability = '$availability'
+            availability = '$availability',
+            description = '$description'
                 WHERE id = '$id'";
 
         $edited = executeSql($sql);

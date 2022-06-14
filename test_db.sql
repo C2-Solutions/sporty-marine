@@ -20,7 +20,8 @@ create table models
     builtin int(4) not null,
     cec     varchar(2),
     status    varchar(10) not null,
-    availability    boolean
+    availability    boolean not null,
+    description     text
 );
 
 create table admins
@@ -39,3 +40,7 @@ create table contact
     message text not null,
     date date
 );
+
+-- Create temporary admin users
+INSERT INTO admins (username, password)
+VALUES ('admin', 'password123')
