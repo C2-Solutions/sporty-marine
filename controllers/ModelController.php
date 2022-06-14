@@ -111,7 +111,9 @@ class ModelController
             $submission = $this->models->new($data);
 
             if ($submission) :
+                $_SESSION['modelsent'] = true;
                 redirect('/admin-modellen');
+                exit;
             endif;
 
             redirect('/error');

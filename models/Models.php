@@ -66,6 +66,7 @@ class Models
             availability = '$availability',
             description = '$description'
                 WHERE id = '$id'";
+
         $edited = executeSql($sql);
 
         if ($edited) {
