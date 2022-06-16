@@ -64,7 +64,19 @@ class BoatController
 
     public static function newBoat()
     {
-        view('admin/new-model');
+        global $conn;
+
+        $content['types'] = false;
+
+        $types = $conn->read('boattype');
+
+        $types = $conn->read('boattype');
+
+        if (!empty($types)) :
+            $content['types'] = $types;
+        endif;
+
+        require(new ViewModel())->extendPath('views/admin/new-model.view.php', $content);
     }
 
     public static function editBoat($id)
@@ -72,6 +84,7 @@ class BoatController
         global $conn;
 
         $content['model'] = false;
+        $extracontent['types'] = false;
 
         $model = ($conn->getById($id, 'models'))[0];
 

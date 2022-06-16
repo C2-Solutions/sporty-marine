@@ -1,7 +1,7 @@
 <h1 style="color: dimgray; text-align: center">Dit is de admin modellenpagina</h1>
 <h2 style="text-align: center">
     <button>
-        <a href="/new-model" class="clickable" style="color: dimgray;">Voeg een nieuwe boot toe</a>
+        <a href="/new-boat" class="clickable" style="color: dimgray;">Voeg een nieuwe boot toe</a>
     </button>
 </h2>
 

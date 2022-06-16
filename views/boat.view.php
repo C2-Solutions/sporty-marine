@@ -5,7 +5,6 @@
                  class="card-img-top" alt="..." style="margin-top: 10px">
             <div class="card-body">
                 <h5 class="card-title"><?php echo $model['name']; ?></h5>
-                <p class="card-text">
                 <div style="float: right; overflow-wrap: break-word; width: 50%">
                     <label for="beschrijving">
                         Beschrijving
@@ -65,7 +64,6 @@
                         <td><?php echo $model['status']; ?></td>
                     </tr>
                 </table>
-                </p>
             </div>
         </div>
     </div>

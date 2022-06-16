@@ -44,18 +44,18 @@ $routes = $router->define(
                 'name' => 'Admin',
                 'title' => 'Dashboard' . $namesuffix
             ],
+            $preroute . 'new-boat' => [
+                'controller' => 'BoatController',
+                'method' => 'newBoat',
+                'name' => 'Boat',
+                'title' => 'New' . $namesuffix
+            ],
             $preroute . 'edit-boat' => [
                 'controller' => 'BoatController',
                 'method' => 'editBoat',
                 'name' => 'Boat',
                 'title' => 'Edit' . $namesuffix
             ],
-    //            $preroute . 'boat' => [
-    //                'controller' => 'BoatController',
-    //                'method' => 'boatInformation',
-    //                'name' => 'Boat',
-    //                'title' => 'Model' . $namesuffix
-    //            ],
             $preroute . 'login' => [
                 'controller' => 'AuthenticationController',
                 'method' => 'loginIndex',

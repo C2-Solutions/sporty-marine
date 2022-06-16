@@ -125,6 +125,25 @@
                         <option value="0">
                             Niet beschikbaar</option>
                     </select><br>
+
+                    <?php
+                    if (!empty($types)) :
+                        ?>
+                    <label for="type">
+                        Type boot:
+                    </label>
+
+                    <select id="type" name="type" required>
+                        <?php
+                        foreach ($types as $type) :
+                            ?>
+                            <option value="<?php echo $type['id']?>">
+                                <?php echo $type['type']?></option>
+                            <?php
+                        endforeach;
+                        echo '</select><br>';
+                    endif;
+                    ?>
                 </div>
 
                     <div style="float: right; width: 50%; text-align: center;">

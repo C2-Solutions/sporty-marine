@@ -123,7 +123,9 @@ $availability = $model['availability'];
                             <option value="0" <?php echo ($availability == '0') ? 'selected' : ''?>>
                                 Niet beschikbaar</option>
                         </select><br>
-
+                    <?php
+                    if (!empty($types)) :
+                        ?>
                     <label for="type">
                         Type boot:
                     </label>
@@ -137,8 +139,9 @@ $availability = $model['availability'];
                             <?php echo $type['type']?></option>
                             <?php
                         endforeach;
-                        ?>
-                    </select><br>
+                        echo '</select><br>';
+                    endif;
+                    ?>
                     </div>
                 <div style="float: right; width: 50%; text-align: center;">
                     <label for="beschrijving">
