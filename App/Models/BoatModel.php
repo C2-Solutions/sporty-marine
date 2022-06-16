@@ -4,9 +4,10 @@ class Boat
 {
     public function new($data)
     {
+        $type = $data['type'];
         $name = $data['name'];
         $price = $data['price'];
-        $length = $data['lgth'];
+        $length = $data['length'];
         $width = $data['width'];
         $weight = $data['weight'];
         $airdraft = $data['airdraft'];
@@ -20,10 +21,10 @@ class Boat
         $description = $data['description'];
 
         $sql = "INSERT INTO models
-                (name, price, lgth, width, weight, airdraft, draft,
+                (boattype, name,  price, lgth, width, weight, airdraft, draft,
                  maxpk, maxpers, builtin, cec, status, availability, description)
                 VALUES
-               ('$name', '$price', '$length', '$width', '$weight', '$airdraft',
+               ('$type', '$name', '$price', '$length', '$width', '$weight', '$airdraft',
                 '$draft', '$maxpk', '$maxpers', '$builtin', '$cec', '$status', '$availability', '$description')";
         $created = executeSql($sql);
 

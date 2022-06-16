@@ -10,7 +10,7 @@ $availability = $model['availability'];
                  class="card-img-top" alt="..." style="margin-top: 10px">
             <div class="card-body">
                 <h5 class="card-title"><?php echo $model['name']; ?></h5>
-                <form method="post" action="/edit-model" class="model-info-form">
+                <form method="post" action="/edit-boat" class="model-info-form">
 
                 <div style="float: left; width: 50%;">
                         <input type="hidden" name="id" value="<?php echo $model['id']; ?>">

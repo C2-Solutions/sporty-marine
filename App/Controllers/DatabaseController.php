@@ -38,10 +38,10 @@ class DatabaseController
         return self::executeQuery($sql, $values);
     }
 
-    public function delete($table, $key = "id")
+    public function delete($id, $table)
     {
-        $sql = "DELETE FROM $table WHERE $key=?";
-        return self::executeQuery($sql, $key);
+        $sql = "DELETE FROM $table WHERE `id` = ?";
+        return self::executeQuery($sql, array($id));
     }
 
     public function getById($id, $table)

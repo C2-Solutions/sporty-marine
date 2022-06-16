@@ -56,6 +56,12 @@ $routes = $router->define(
                 'name' => 'Boat',
                 'title' => 'Edit' . $namesuffix
             ],
+            $preroute . 'delete-boat' => [
+                'controller' => 'BoatController',
+                'method' => 'delete',
+                'name' => 'Boat',
+                'title' => 'Deleting' . $namesuffix
+            ],
             $preroute . 'login' => [
                 'controller' => 'AuthenticationController',
                 'method' => 'loginIndex',
@@ -81,6 +87,14 @@ $routes = $router->define(
             $preroute . 'contact' => [
                 'controller' => 'ContactController',
                 'method' => 'createNew'
+            ],
+            $preroute . 'new-boat' => [
+                'controller' => 'BoatController',
+                'method' => 'new'
+            ],
+            $preroute . 'edit-boat' => [
+                'controller' => 'BoatController',
+                'method' => 'edit'
             ],
         ]
     ]

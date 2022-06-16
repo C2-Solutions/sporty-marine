@@ -2,7 +2,6 @@
 
 class BoatController
 {
-    protected $boat;
     protected $pdo;
     protected $conn;
 
@@ -13,7 +12,6 @@ class BoatController
 
         $this->pdo = $pdo;
         $this->pdo = $conn;
-        $this->boat = new Boat();
     }
 
     public static function index()
@@ -70,8 +68,6 @@ class BoatController
 
         $types = $conn->read('boattype');
 
-        $types = $conn->read('boattype');
-
         if (!empty($types)) :
             $content['types'] = $types;
         endif;
@@ -91,7 +87,7 @@ class BoatController
         $types = $conn->read('boattype');
 
         if (!$model) :
-            redirect('/admin-modellen');
+            redirect('/boats');
             exit;
         endif;
 
@@ -123,6 +119,7 @@ class BoatController
             'status' => htmlspecialchars($_POST['status']),
             'availability' => htmlspecialchars($_POST['beschikbaarheid']),
             'description' => htmlspecialchars($_POST['beschrijving']),
+            'type' => htmlspecialchars($_POST['type']),
         );
 
         if (
@@ -141,11 +138,10 @@ class BoatController
             !empty($data['cec']) &&
             !empty($data['status'])
         ) :
-            $submission = self::$boat->new($data);
+            $submission = (new Boat())->new($data);
 
             if ($submission) :
-                $_SESSION['modelsent'] = true;
-                redirect('/admin-modellen');
+                redirect('/boats');
                 exit;
             endif;
 
@@ -190,10 +186,10 @@ class BoatController
             !empty($data['cec']) &&
             !empty($data['status'])
         ) :
-            $submission = self::$boat->edit($data);
+            $submission = (new Boat())->edit($data);
 
             if ($submission) :
-                redirect("/admin-modellen");
+                redirect("/boats");
                 exit;
             endif;
 
@@ -206,12 +202,15 @@ class BoatController
 
     public static function delete($id)
     {
-        $deleted = self::$conn->delete($id, 'models');
+        global $conn;
 
-        if ($deleted) :
-            return redirect('/admin-modellen');
+        $deleted = $conn->delete($id, 'models');
+
+        if (!$deleted) :
+            redirect('/boats');
+            exit;
         endif;
 
-        echo 'error';
+        redirect("/error");
     }
 }

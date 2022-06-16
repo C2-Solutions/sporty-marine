@@ -11,7 +11,7 @@
             <h5 class="card-title"><?php echo $model['name'];?></h5>
             <?php if (IsAdmin()) :
                 ?>
-                <a style="float: right" class="clickable" href="/delete-model?id=<?php echo $model['id']; ?> "
+                <a style="float: right" class="clickable" href="/delete-boat?id=<?php echo $model['id']; ?> "
                    onclick="return confirm('Weet je zeker dat je dit wilt verwijderen?')">
                    Verwijderen
                 </a>

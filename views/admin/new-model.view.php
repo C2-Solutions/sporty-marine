@@ -6,7 +6,7 @@
             <div class="card-body">
                 <h5 class="card-title">Nieuw Model</h5>
                 <p class="card-text">
-                <form method="post" action="/new-model" class="model-info-form">
+                <form method="post" action="/new-boat" class="model-info-form">
 
                 <div style="float: left; width: 50%;">
                     <label for="naam">
