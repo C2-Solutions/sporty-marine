@@ -18,7 +18,14 @@ class Routes
     // Direct the user to the given uri
     public function direct($uri)
     {
-        define('PAGE_NAME', $this->routes['GET'][$uri]['title']);
+        if (isset($this->routes['GET'][$uri])) {
+            $pn = $this->routes['GET'][$uri]['title'];
+        } else {
+            $pn = "Not found - " . SITE_NAME;
+        }
+
+        define('PAGE_NAME', $pn);
+
         require 'views/shared/head.view.php';
         self::returnHeader();
 
