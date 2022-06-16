@@ -68,6 +68,12 @@ $routes = $router->define(
                 'name' => 'Logout',
                 'title' => "Logout" . $namesuffix
             ],
+            $preroute . 'setup' => [
+                'controller' => 'SetupController',
+                'method' => 'index',
+                'name' => 'Setup',
+                'title' => "Setup" . $namesuffix
+            ],
         ],
         'POST' => [
             $preroute . 'login' => [
@@ -77,6 +83,10 @@ $routes = $router->define(
             $preroute . 'logout' => [
                 'controller' => 'AuthenticationController',
                 'method' => 'logoutUser'
+            ],
+            $preroute . 'setup' => [
+                'controller' => 'AuthenticationController',
+                'method' => 'createUser'
             ],
             $preroute . 'contact' => [
                 'controller' => 'ContactController',

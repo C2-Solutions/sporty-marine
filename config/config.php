@@ -1,4 +1,6 @@
 <?php
+require_once("App/Controllers/DatabaseController.php");
+
 define('SITE_NAME', 'Flevonautica');
 
 // App Root
@@ -30,7 +32,7 @@ try {
 
 include_once 'App/Controllers/DatabaseController.php';
 
-$conn = new DatabaseController($pdo);
+$conn = (new DatabaseController($pdo));
 
 global $pdo;
 global $conn;

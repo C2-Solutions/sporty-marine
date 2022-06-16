@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS models
     id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     boattype INT NOT NULL,
     name VARCHAR(100) NOT NULL UNIQUE,
-    price   INT(9) NOT NULL,
+    price INT(9) NOT NULL,
     description TEXT,
     image VARCHAR(255) NOT NULL DEFAULT 'public/images/boats/default.jpg',
     lgth DECIMAL(10, 2) NOT NULL,
@@ -24,8 +24,8 @@ CREATE TABLE IF NOT EXISTS models
     maxpers INT(4) NOT NULL,
     builtin INT(4) NOT NULL,
     cec VARCHAR(20),
-    status    VARCHAR(10) NOT NULL,
-    availability    BOOLEAN NOT NULL,
+    status VARCHAR(10) NOT NULL,
+    availability BOOLEAN NOT NULL,
     CONSTRAINT `boattypes` FOREIGN KEY(boattype) REFERENCES boattype(id)
 );
 

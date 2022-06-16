@@ -23,6 +23,21 @@
                     </li>
                 </ul>
             </div>
+            <!-- Show when the user logs in... -->
+            <?php if (isset($_SESSION['loggedin' === true])) { ?>
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="boats">Add models</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact">Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            <?php } ?>
         </div>
     </nav>
 </body>

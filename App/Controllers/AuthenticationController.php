@@ -12,53 +12,75 @@ class AuthenticationController
         require(new ViewModel())->extendPath('views/admin/authentication/logout.view.php');
     }
 
-    // Log in user, create new session
-    public static function login()
+    public static function loginUser()
     {
-        $content = [];
+        if (!isset($_POST['username'], $_POST['password'])) {
+            // Could not get the data that should have been sent.
+            exit('Please fill both the username and password fields!');
+        }
 
-        $adminname = htmlspecialchars($_POST['username']);
+        $username = htmlspecialchars($_POST['username']);
         $password = htmlspecialchars($_POST['password']);
-        $admin = Admin::login($adminname, $password);
-
-        if (!empty($admin)) :
-            if (!$admin[0]) :
-                $content['errorMessage'] = $admin[1];
-
-                view('admin/login', $content);
-                return false;
-            endif;
-
-            $admin = $admin[1];
-
-            if (!empty($admin)) :
-                $_SESSION['adminid']     =   (!empty($admin['id'])) ? $admin['id'] : '';
-                $_SESSION['username']    =   (!empty($admin['username'])) ? $admin['username'] : '';
-
-                return redirect('admin-dashboard');
-            endif;
-        endif;
-
-        $content['errorMessage'] = 'Er heeft zich een fout voor gedaan';
-        view('admin/login', $content);
-        return false;
+        self::verifyLogin($username, $password);
+        redirect('');
     }
 
     // Log out user, destroy session
-    public static function logout()
+    public static function logoutUser()
     {
-        return;
+        session_destroy();
+        session_unset();
+        unset($_SESSION["loggedin"]);
+        $_SESSION = array();
     }
 
-    // Send an email to invite a new user, create token
-    public static function invite()
+    private static function verifyLogin($password)
     {
-        return;
+        global $pdo;
+
+        if ($stmt = $pdo->prepare('SELECT id, password FROM users WHERE username = :username')) {
+            $stmt->bindparam('username', $_POST['username']);
+            $stmt->execute();
+            $logged = $stmt->fetch();
+
+            if ($logged) {
+                $stmt->bindparam($logged['id'], $password);
+                $stmt->fetch();
+
+                $hashPwd = self::hashPassword($password);
+                if (password_verify($_POST['password'], $hashPwd)) {
+                    session_regenerate_id();
+                    $_SESSION['loggedin'] = true;
+                    $_SESSION['username'] = $_POST['username'];
+                    $_SESSION['last_changed'] = date("Y-m-d H:i:s");
+
+                    echo 'Welcome ' . $_SESSION['username'] . '!';
+                } else {
+                    // Incorrect password
+                    echo 'Incorrect username and/or password!';
+                }
+            } else {
+                // Incorrect username
+                echo 'Incorrect username and/or password!';
+            }
+        }
     }
 
-    // Delete user from the database, can not be current user
-    public static function delete()
+    private static function hashPassword($password)
     {
-        return;
+        return password_hash($password, PASSWORD_ARGON2ID);
+    }
+
+    public static function createUser()
+    {
+        global $conn;
+
+        $username = htmlspecialchars($_POST['username']);
+        $password = htmlspecialchars($_POST['password']);
+        $hashedPwd = self::hashPassword($password);
+
+        $conn->create('users', ['username', 'password'], [$username, $hashedPwd]);
+        echo "Account has been created! Redirecting you to the login page...";
+        header("refresh:3;url=login");
     }
 }
