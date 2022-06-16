@@ -43,6 +43,14 @@ CREATE TABLE IF NOT EXISTS contact_inquiries
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
+create table  IF NOT EXISTS images
+(
+    id      int auto_increment primary key,
+    modelid int not null ,
+    image   varchar(255) not null ,
+    FOREIGN KEY (modelid) REFERENCES models(id)
+);
+
 -- Create admin user. MAKE SURE TO CHANGE THIS TO SOMETHING SECURE
 INSERT INTO admins (username, password)
 VALUES ('admin', 'password123')
