@@ -65,7 +65,8 @@ class ContactController
 
             if ($submission) :
                 $_SESSION['contactsent'] = true;
-                redirect('/contact');
+                // redirect('/contact'); // TODO: redirect to other page
+                exit();
             endif;
 
             redirect('/contact');

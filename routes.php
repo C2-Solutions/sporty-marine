@@ -56,7 +56,7 @@ $routes = $router->define(
             ],
             $preroute . 'contact' => [
                 'controller' => 'ContactController',
-                'method' => 'logoutUser'
+                'method' => 'new'
             ],
         ]
     ]
