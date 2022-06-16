@@ -24,7 +24,6 @@ class BoatController
 
         if (!empty($models)) :
             $content['models'] = $models;
-
         endif;
 
         if (!empty(IsAdmin())) {
@@ -50,7 +49,6 @@ class BoatController
 
         if (!empty($model)) :
             $content['model'] = $model;
-
         endif;
 
         if ($model['availability'] == 1) :
