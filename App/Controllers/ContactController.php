@@ -8,7 +8,7 @@ class ContactController
 
     public function __construct()
     {
-        $this->contacts = new Contact();
+        self::$contacts = new Contact();
     }
 
     public static function index()
@@ -67,11 +67,11 @@ class ContactController
             !empty($data['message'])
         ) :
             // Error: Call to a member function new() on null
-            $submission = self::$contacts->new($data);
+            $submission = (new Contact())->new($data);
 
             if ($submission) :
                 $_SESSION['contactsent'] = true;
-                // redirect('/contact'); // TODO: redirect to other page
+                 redirect('/contact');
                 exit();
             endif;
 
