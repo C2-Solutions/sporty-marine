@@ -2,8 +2,8 @@
 
 require_once("App/Controllers/AuthenticationController.php");
 
-if (isset($_POST['login'])) {
-    require(new AuthenticationController())::loginUser();
+if (isset($_POST['create'])) {
+    require(new AuthenticationController())::createUser();
 }
 
 ?>
@@ -13,9 +13,9 @@ if (isset($_POST['login'])) {
 </div>
 
 <div>
-   <h1 class="page-title" style="color:#000;">INLOGGEN</h1>
+   <h1 class="page-title" style="color:#000;">Create an account</h1>
 
-   <form action="login" method="post">
+   <form action="" method="post">
         <div class="login-container">
             <div class="login-box">
                 <input type="text" name="username" placeholder="Username" id="username" required>
@@ -24,7 +24,7 @@ if (isset($_POST['login'])) {
                 <input type="password" name="password" placeholder="Password" id="password" required>
             </div>
             <div class="login-box">
-                <input type="submit" value="login">
+                <input type="submit" value="Create admin account">
             </div>
         </div>
     </form>

@@ -21,12 +21,12 @@ class DatabaseController
 
     public function read($table, $row = "*", $order = "id")
     {
-        if ($table == 'models') :
-            $sql = "SELECT models.id, boattype, name, price, image, status, availability, type from models, boattype 
-            WHERE models.boattype = boattype.id";
-        else :
+        if ($table == 'models') {
+            $sql = "SELECT models.id, boattype, name, price, image, status, availability, type
+                     from models, boattype WHERE models.boattype = boattype.id";
+        } else {
             $sql = "SELECT $row FROM $table ORDER BY $order";
-        endif;
+        }
 
         return self::executeQuery($sql);
     }
@@ -47,8 +47,8 @@ class DatabaseController
     public function getById($id, $table)
     {
         if ($table == 'models') :
-            $sql = "SELECT models.id, boattype, name, price, description, image, lgth, width, weight, airdraft, 
-            draft, maxpk, maxpers, builtin, cec, status, availability, type from models, boattype 
+            $sql = "SELECT models.id, boattype, name, price, description, image, lgth, width, weight, airdraft,
+            draft, maxpk, maxpers, builtin, cec, status, availability, type from models, boattype
             WHERE models.id = ? AND models.boattype = boattype.id";
         else :
             $sql = "SELECT * FROM `$table` WHERE `id` = ?";
