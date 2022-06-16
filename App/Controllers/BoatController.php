@@ -28,8 +28,8 @@ class BoatController
             $content['models'] = $models;
         endif;
 
-        if (empty(IsAdmin())) {
-             $content = null;
+        if (!empty(IsAdmin())) {
+            require(new ViewModel())->extendPath("views/admin/boats.view.php", $content);
         }
 
         require(new ViewModel())->extendPath("views/boats.view.php", $content);

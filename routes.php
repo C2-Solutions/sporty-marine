@@ -35,18 +35,18 @@ $routes = $router->define(
             $preroute . 'boat' => [
                 'controller' => 'BoatController',
                 'method' => 'boatInformation',
-                'name' => 'Boats',
-                'title' => 'Models' . $namesuffix
+                'name' => 'Boat',
+                'title' => 'Model' . $namesuffix
             ],
             $preroute . 'login' => [
                 'controller' => 'AuthenticationController',
-                'method' => 'index',
+                'method' => 'loginIndex',
                 'name' => 'Login',
                 'title' => 'Login' . $namesuffix
             ],
             $preroute . 'logout' => [
                 'controller' => 'AuthenticationController',
-                'method' => 'logout',
+                'method' => 'logoutIndex',
                 'name' => 'Logout',
                 'title' => "Logout" . $namesuffix
             ],

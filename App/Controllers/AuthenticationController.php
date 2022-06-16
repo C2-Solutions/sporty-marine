@@ -2,9 +2,14 @@
 
 class AuthenticationController
 {
-    public static function index()
+    public static function loginIndex()
     {
-        require(new ViewModel())->extendPath('views/admin/authenticate/' . PAGE_NAME . '.view.php');
+        require(new ViewModel())->extendPath('views/admin/authentication/login.view.php');
+    }
+
+    public static function logoutIndex()
+    {
+        require(new ViewModel())->extendPath('views/admin/authentication/logout.view.php');
     }
 
     // Log in user, create new session
