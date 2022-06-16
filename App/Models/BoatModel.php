@@ -1,6 +1,6 @@
 <?php
 
-class Models
+class Boat
 {
     public function new($data)
     {
@@ -19,10 +19,10 @@ class Models
         $availability = $data['availability'];
         $description = $data['description'];
 
-        $sql = "INSERT INTO models 
-                (name, price, length , width, weight, airdraft, draft, 
+        $sql = "INSERT INTO models
+                (name, price, length , width, weight, airdraft, draft,
                  maxpk, maxpers, builtin, cec, status, availability, description)
-                VALUES 
+                VALUES
                ('$name', '$price', '$length', '$width', '$weight', '$airdraft',
                 '$draft', '$maxpk', '$maxpers', '$builtin', '$cec', '$status', '$availability', '$description')";
         $created = executeSql($sql);
@@ -53,13 +53,13 @@ class Models
 
         $sql = "UPDATE models
         SET price = '$price',
-            length = '$length', 
-            width = '$width', 
-            weight = '$weight', 
-            airdraft = '$airdraft', 
-            draft = '$draft', 
-            maxpk = '$maxpk', 
-            maxpers = '$maxpers', 
+            length = '$length',
+            width = '$width',
+            weight = '$weight',
+            airdraft = '$airdraft',
+            draft = '$draft',
+            maxpk = '$maxpk',
+            maxpers = '$maxpers',
             builtin = '$builtin',
             cec = '$cec',
             status = '$status',

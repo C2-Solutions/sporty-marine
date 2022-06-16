@@ -23,7 +23,7 @@ function getPageName($strip_slashes = false, $return_array = false)
 function view($filename, $contents = array())
 {
     if (!file_exists('views/' . $filename . '.php')) :
-        require_once('views/404.php');
+        require_once('views/notfound.view.php');
         exit();
     endif;
 
@@ -31,7 +31,7 @@ function view($filename, $contents = array())
         extract($contents);
     endif;
 
-    require_once('views/' . $filename . '.php');
+    require_once('views/' . $filename . 'view.php');
 }
 
 function loadFilesFromDir($files, $directory)
@@ -58,10 +58,10 @@ function redirect($location)
 
 function executeSql($query, $fetch_all = false)
 {
-    global $conn;
+    global $pdo;
 
     if ($fetch_all) :
-        $result = $conn->query($query)->fetchAll();
+        $result = $pdo->query($query)->fetchAll();
 
         if (!empty($result)) :
             return $result;
@@ -70,7 +70,7 @@ function executeSql($query, $fetch_all = false)
         return false;
     endif;
 
-    if ($conn->query($query)) :
+    if ($pdo->query($query)) :
         return true;
     endif;
 

@@ -1,24 +1,63 @@
 <?php
+$router = new Routes();
 
-//$prefix = '';
-//$requestURI = explode('?', parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH))[0];
-//if (!empty($prefix) && $requestURI=='/'.$prefix):
-//    header("Location: /".$prefix."/", true, 301);
-//    exit();
-//elseif ($requestURI=='/'.$prefix."/"):
-//    $requestURI="/";
-//elseif (substr($requestURI, 0, strlen('/'.$prefix))===('/'.$prefix)):
-//    $requestURI=substr($requestURI, strlen('/'.$prefix));
-//endif;
-//
-//$request = trim($requestURI, '/');
+$preroute = trim((new ViewModel())->extendRoute(), '//');
 
+$namesuffix = ' - ' . SITE_NAME;
 
-$router->define([
-    ''           => 'controllers/home.controller.php',
-    'modellen'   => 'controllers/modellen.controller.php',
-    'edit-model' => 'controllers/modellen.controller.php',
-    'contact'    => 'controllers/contact.controller.php',
-    'model'      => 'controllers/model.controller.php',
-    'adminLogin' => 'controllers/adminLogin.controller.php'
-]);
+$routes = $router->define(
+    [
+        'GET' => [
+            $preroute . '' => [
+                'controller' => 'IndexController',
+                'method' => 'index',
+                'name' => 'Home',
+                'title' => 'Home' . $namesuffix
+            ],
+            $preroute . 'about' => [
+                'controller' => 'AboutController',
+                'method' => 'index',
+                'name' => 'About',
+                'title' => 'About' . $namesuffix
+            ],
+            $preroute . 'contact' => [
+                'controller' => 'ContactController',
+                'method' => 'index',
+                'name' => 'Contact',
+                'title' => 'Contact' . $namesuffix
+            ],
+            $preroute . 'boats' => [
+                'controller' => 'BoatController',
+                'method' => 'index',
+                'name' => 'Boats',
+                'title' => 'Models' . $namesuffix
+            ],
+            $preroute . 'login' => [
+                'controller' => 'AuthenticationController',
+                'method' => 'index',
+                'name' => 'Login',
+                'title' => 'Login' . $namesuffix
+            ],
+            $preroute . 'logout' => [
+                'controller' => 'AuthenticationController',
+                'method' => 'logout',
+                'name' => 'Logout',
+                'title' => "Logout" . $namesuffix
+            ],
+        ],
+        'POST' => [
+            $preroute . 'login' => [
+                'controller' => 'AuthenticationController',
+                'method' => 'loginUser'
+            ],
+            $preroute . 'logout' => [
+                'controller' => 'AuthenticationController',
+                'method' => 'logoutUser'
+            ],
+            $preroute . 'contact' => [
+                'controller' => 'ContactController',
+                'method' => 'logoutUser'
+            ],
+        ]
+    ]
+);

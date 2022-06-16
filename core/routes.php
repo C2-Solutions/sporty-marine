@@ -1,141 +1,73 @@
 <?php
 
-//$prefix = '';
-//$requestURI = explode('?', parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH))[0];
-//if (!empty($prefix) && $requestURI=='/'.$prefix):
-//    header("Location: /".$prefix."/", true, 301);
-//    exit();
-//elseif ($requestURI=='/'.$prefix."/"):
-//    $requestURI="/";
-//elseif (substr($requestURI, 0, strlen('/'.$prefix))===('/'.$prefix)):
-//    $requestURI=substr($requestURI, strlen('/'.$prefix));
-//endif;
-//
-//$request = trim($requestURI, '/');
-//
-//$router->define([
-//    ''           => 'controllers/home.controller.php',
-//    'modellen'   => 'controllers/modellen.controller.php',
-//    'contact'    => 'controllers/contact.controller.php',
-//    'model'      => 'controllers/model.controller.php',
-//    'adminLogin' => 'controllers/adminLogin.controller.php'
-//]);
+foreach (glob("App/**/*.php") as $filename)
+{
+    require_once($filename);
+}
 
-// Shows header on every page
-view('shared/header');
+class Routes
+{
+    protected $routes = [];
 
-// Generate request from URL
-$request = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+    // Define the routes
+    public function define($routes)
+    {
+        $this->routes = $routes;
+        define('ROUTES', $routes);
+    }
 
+    // Direct the user to the given uri
+    public function direct($uri)
+    {
+        // var_dump($uri);
+        define('PAGE_NAME', $uri);
+        require 'views/shared/head.view.php';
+        self::returnHeader();
 
-if (!empty($request)) :
-// If request empty, send directly to home
-    if (!empty($_POST)) :
-        switch ($request) {
-            case '/admin-login':
-                Router::post('AdminController', 'login');
-                break;
+        try {
+            if (isset($this->routes['GET']) || isset($this->routes['POST'])) {
+                // If the request method is post it will select the array keys from the POST in the array
+                if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                    $controller = $this->routes['POST'][$uri]['controller'];
+                    $method = $this->routes['POST'][$uri]['method'];
 
-            case '/contact':
-                Router::post('ContactController', 'new');
-                break;
+                    return $controller::$method();
+                // If the request method is get it will select the array keys from the GET in the array
+                } elseif ($_SERVER['REQUEST_METHOD'] === 'GET' && !isset($routes['GET'][$uri])) {
+                    $controller = $this->routes['GET'][$uri]['controller'];
+                    $method = $this->routes['GET'][$uri]['method'];
 
-            case '/new-model':
-                Router::post('ModelController', 'new');
-                break;
+                    // Added some protected routes so not anyone has access to these routes
+                    if (!empty($this->routes['GET'][$uri]['protected'])) {
+                        $protectedRoute = $this->routes['GET'][$uri]['protected'];
+                    } else {
+                        $protectedRoute = false;
+                    }
 
-            case '/edit-model':
-                Router::post('ModelController', 'edit');
-                break;
-
-            default:
-                view('404');
-                view('shared/footer');
-                break;
+                    $controller::$method();
+                } else {
+                    // Page doesn't exist, return error
+                    (new NotFoundController())->index();
+                }
+            } else {
+                // Page doesn't exist, return error
+                (new NotFoundController())->index();
+            }
+        } catch (Throwable $e) {
+            // Page doesn't exist, return error
+            (new NotFoundController())->index();
         }
-    else :
-        switch ($request) {
-            case '/':
-            case '/home':
-                Router::get('HomeController', 'index');
-                break;
+        require 'views/shared/footer.view.php';
+    }
 
-            case '/contact':
-                Router::get('ContactController', 'index');
-                break;
-
-            case '/modellen':
-            case '/admin-modellen':
-                Router::get('ModelController', 'index');
-                break;
-
-            case '/over-ons':
-                Router::get('HomeController', 'about');
-                break;
-
-            case '/model':
-                if (!empty($_GET['id'])) :
-                    Router::get('ModelController', 'modelInformation', htmlspecialchars($_GET['id']));
-                endif;
-                break;
-
-            case '/admin-login':
-                Router::get('AdminController', 'index');
-                break;
-
-            case '/admin-dashboard':
-                Router::get('AdminController', 'dashboardIndex');
-                break;
-
-            case '/new-model':
-                Router::get('ModelController', 'newModel');
-                break;
-
-            case '/edit-model':
-                if (!empty($_GET['id'])) :
-                    Router::get('ModelController', 'editModel', htmlspecialchars($_GET['id']));
-                endif;
-                break;
-
-            case '/create-model':
-                Router::get('ModelController', 'createModel');
-                break;
-
-            case '/admin-contacts':
-                Router::get('ContactController', 'adminContactIndex');
-                break;
-
-            case '/admin-contact':
-                if (!empty($_GET['id'])) :
-                    Router::get('ContactController', 'contactInformation', htmlspecialchars($_GET['id']));
-                endif;
-                break;
-
-            case '/delete-contact':
-                if (!empty($_GET['id'])) :
-                    Router::get('ContactController', 'delete', htmlspecialchars($_GET['id']));
-                endif;
-
-                break;
-            case '/delete-model':
-                if (!empty($_GET['id'])) :
-                    Router::get('ModelController', 'delete', htmlspecialchars($_GET['id']));
-                endif;
-                break;
-
-            case '/uitloggen':
-                Router::get('AdminController', 'logout');
-                break;
-
-            default:
-                view('404');
-                view('shared/footer');
-                break;
+    protected function returnHeader($protectedRoute = false)
+    {
+        if ($protectedRoute) {
+            if ($_SESSION['user_logged_in']) {
+                require 'views/shared/admin-header.view.php';
+            }
+        } else {
+            require 'views/shared/header.view.php';
         }
-    endif;
-else :
-    view('home');
-endif;
-
-// Shows footer on every page
-view('shared/footer');
+    }
+}

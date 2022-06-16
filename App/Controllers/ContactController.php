@@ -3,17 +3,15 @@
 class ContactController
 {
     public $contacts;
-    public $database;
 
     public function __construct()
     {
         $this->contacts = new Contact();
-        $this->database = new Database();
     }
 
     public function index()
     {
-        view('contact');
+        require(new ViewModel())->extendPath('views/contact.view.php');
     }
 
     public function adminContactIndex()

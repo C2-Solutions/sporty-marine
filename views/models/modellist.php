@@ -22,7 +22,9 @@
             <table class="model-info-table">
                 <tr>
                     <td>Prijs:</td>
-                    <td><b>€ <?php echo number_format($model['price'], thousands_separator: '.');?>,-</b></td>
+                    <td>
+                        <b>€ <?php echo number_format($model['price'], thousands_separator: '.'); ?>,-</b>
+                    </td>
                 </tr>
                 <tr>
                     <td>Status:</td>

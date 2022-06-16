@@ -1,13 +1,14 @@
 <?php
 
-class AdminController
+class AuthenticationController
 {
-    public function index()
+    public static function index()
     {
-        view('admin/login');
+        require(new ViewModel())->extendPath('views/admin/authenticate/' . PAGE_NAME . '.view.php');
     }
 
-    public function login()
+    // Log in user, create new session
+    public static function login()
     {
         $content = [];
 
@@ -38,14 +39,21 @@ class AdminController
         return false;
     }
 
-    public function dashboardIndex()
+    // Log out user, destroy session
+    public static function logout()
     {
-        view('admin/dashboard');
+        return;
     }
 
-    public function logout()
+    // Send an email to invite a new user, create token
+    public static function invite()
     {
-        session_destroy();
-        return redirect('/');
+        return;
+    }
+
+    // Delete user from the database, can not be current user
+    public static function delete()
+    {
+        return;
     }
 }

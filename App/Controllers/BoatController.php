@@ -1,30 +1,39 @@
 <?php
 
-class ModelController
+class BoatController
 {
-    public $models;
-    public $database;
+    protected $boat;
+    protected $pdo;
+    protected $conn;
 
     public function __construct()
     {
-        $this->models = new Models();
-        $this->database = new Database();
+        global $pdo;
+        global $conn;
+
+        $this->pdo = $pdo;
+        $this->pdo = $conn;
+        $this->boat = new Boat();
     }
 
-    public function index()
+    public static function index()
     {
+        global $conn;
+
         $content['models'] = false;
 
-        $models = $this->database->getAll('models');
+        $models = $conn->read('models');
 
         if (!empty($models)) :
             $content['models'] = $models;
         endif;
 
         if (!empty(IsAdmin())) :
-            view('admin/models', $content);
+            view('admin/boats', $content);
+            // require(new ViewModel())->extendPath('views/' . PAGE_NAME . '.view.php');
         else :
-            view('modellen', $content);
+            view('boats', $content);
+            // require(new ViewModel())->extendPath('views/' . PAGE_NAME . '.view.php');
         endif;
     }
 
@@ -32,7 +41,7 @@ class ModelController
     {
         $content['model'] = false;
 
-        $model = $this->database->getById($id, 'models');
+        $model = $this->conn->getById($id, 'models');
 
         if (!$model) :
             redirect('/modellen');
@@ -46,7 +55,7 @@ class ModelController
         if ($model['availability'] == 1) :
             view('model', $content);
         else :
-            redirect('/modellen');
+            redirect('/boats');
         endif;
     }
 
@@ -59,7 +68,7 @@ class ModelController
     {
         $content['model'] = false;
 
-        $model = $this->database->getById($id, 'models');
+        $model = $this->conn->getById($id, 'models');
 
         if (!$model) :
             redirect('/admin-modellen');
@@ -108,7 +117,7 @@ class ModelController
             !empty($data['cec']) &&
             !empty($data['status'])
         ) :
-            $submission = $this->models->new($data);
+            $submission = $this->boat->new($data);
 
             if ($submission) :
                 $_SESSION['modelsent'] = true;
@@ -173,11 +182,10 @@ class ModelController
 
     public function delete($id)
     {
-        $deleted = $this->database->delete($id, 'models');
+        $deleted = $this->conn->delete($id, 'models');
 
         if ($deleted) :
             return redirect('/admin-modellen');
-            exit;
         endif;
 
         echo 'error';
