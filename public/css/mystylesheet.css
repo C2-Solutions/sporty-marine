@@ -85,9 +85,7 @@ header>nav {
 
 @media screen and (max-width: 500px) {
     .footer {
-        position: fixed;
-        left: 0;
-        bottom: 0;
+        position: static;
         width: 100%;
         background-color: red;
         color: white;
@@ -105,9 +103,7 @@ header>nav {
 
 .footer {
     display: block;
-    position: fixed;
-    left: 0;
-    bottom: 0;
+    position: static;
     width: 100%;
     background-color: aquamarine;
     color: black;
