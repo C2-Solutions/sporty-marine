@@ -9,16 +9,18 @@ class ContactController
         $this->contacts = new Contact();
     }
 
-    public function index()
+    public static function index()
     {
         require(new ViewModel())->extendPath('views/contact.view.php');
     }
 
-    public function adminContactIndex()
+    public static function adminContactIndex()
     {
+        global $conn;
+
         $content['contacts'] = false;
 
-        $contacts = $this->database->getAll('contact');
+        $contacts = $conn->read('contact');
 
         if (!empty($contacts)) :
             $content['contacts'] = $contacts;
@@ -27,11 +29,13 @@ class ContactController
         view('admin/contacts', $content);
     }
 
-    public function contactInformation($id)
+    public static function contactInformation($id)
     {
+        global $conn;
+
         $content['contact'] = false;
 
-        $contact = $this->database->getById($id, 'contact');
+        $contact = $conn->getById($id, 'contact');
 
         if (!$contact) :
             redirect('/admin-contacts');
@@ -45,7 +49,7 @@ class ContactController
         view('admin/contact', $content);
     }
 
-    public function new()
+    public static function new()
     {
         $data = array(
             'name' => htmlspecialchars($_POST['name']),
@@ -55,13 +59,12 @@ class ContactController
         );
 
         if (
-            is_array($data) &&
             !empty($data) &&
             !empty($data['name']) &&
             !empty($data['email']) &&
             !empty($data['message'])
         ) :
-            $submission = $this->contacts->new($data);
+            $submission = self::$contacts->new($data);
 
             if ($submission) :
                 $_SESSION['contactsent'] = true;
@@ -75,9 +78,11 @@ class ContactController
         redirect('/contact');
     }
 
-    public function delete($id)
+    public static function delete($id)
     {
-        $deleted = $this->database->delete($id, 'contact');
+        global $conn;
+
+        $deleted = $conn->delete($id, 'contact');
 
         if ($deleted) :
             return redirect('/admin-contacts');
