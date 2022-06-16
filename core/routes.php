@@ -18,8 +18,7 @@ class Routes
     // Direct the user to the given uri
     public function direct($uri)
     {
-//        var_dump($uri);
-        define('PAGE_NAME', $uri);
+        define('PAGE_NAME', $this->routes['GET'][$uri]['title']);
         require 'views/shared/head.view.php';
         self::returnHeader();
 
