@@ -31,6 +31,7 @@ class BoatController
 
         if (!empty(IsAdmin())) {
             require(new ViewModel())->extendPath("views/admin/boats.view.php", $content);
+            exit;
         }
 
         require(new ViewModel())->extendPath("views/boats.view.php", $content);
@@ -61,16 +62,20 @@ class BoatController
         endif;
     }
 
-    public static function newModel()
+    public static function newBoat()
     {
         view('admin/new-model');
     }
 
-    public static function editModel($id)
+    public static function editBoat($id)
     {
+        global $conn;
+
         $content['model'] = false;
 
-        $model = self::$conn->getById($id, 'models');
+        $model = ($conn->getById($id, 'models'))[0];
+
+        $types = $conn->read('boattype');
 
         if (!$model) :
             redirect('/admin-modellen');
@@ -81,7 +86,11 @@ class BoatController
             $content['model'] = $model;
         endif;
 
-        view('admin/edit-model', $content);
+        if (!empty($types)) :
+            $extracontent['types'] = $types;
+        endif;
+
+        require(new ViewModel())->extendPath('views/admin/edit-model.view.php', $content, $extracontent);
     }
 
     public static function new()

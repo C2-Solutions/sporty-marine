@@ -8,10 +8,14 @@ class ViewModel
         $this->hostname = gethostname();
     }
 
-    public function extendPath(string $path, $contents = array()): string
+    public function extendPath(string $path, $contents = array(), $extracontents = array()): string
     {
         if (is_array($contents) && !empty(($contents))) :
             extract($contents);
+        endif;
+
+        if (is_array($extracontents) && !empty(($extracontents))) :
+            extract($extracontents);
         endif;
 
         if ($this->verifyClowHost()) {

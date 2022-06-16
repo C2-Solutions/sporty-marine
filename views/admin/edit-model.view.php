@@ -27,7 +27,7 @@ $availability = $model['availability'];
                         </label><br>
 
                         <input type="number" step="0.01" inputmode="numeric" id="lengte" name="lengte" required
-                               value="<?php echo $model['length']; ?>">
+                               value="<?php echo $model['lgth']; ?>">
                         <span>m</span><br>
 
                         <label for="breedte">
@@ -124,6 +124,21 @@ $availability = $model['availability'];
                                 Niet beschikbaar</option>
                         </select><br>
 
+                    <label for="type">
+                        Type boot:
+                    </label>
+
+                    <select id="type" name="type" required>
+                        <?php
+                        foreach ($types as $type) :
+                            ?>
+                        <option value="<?php echo $type['id']?>"
+                            <?php echo ($type['type'] == $model['type']) ? 'selected' : ''?>>
+                            <?php echo $type['type']?></option>
+                            <?php
+                        endforeach;
+                        ?>
+                    </select><br>
                     </div>
                 <div style="float: right; width: 50%; text-align: center;">
                     <label for="beschrijving">
