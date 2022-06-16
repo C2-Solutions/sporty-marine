@@ -4,7 +4,11 @@ class Database
 {
     public static function getAll($table)
     {
-        $sql = "SELECT * FROM `$table`";
+        if ($table == 'models') :
+            $sql = "SELECT * FROM models, images WHERE models.id = images.modelid";
+        else :
+            $sql = "SELECT * FROM `$table`";
+        endif;
 
         $results = executeFetchAllSql($sql);
 
