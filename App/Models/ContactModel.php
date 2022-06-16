@@ -2,7 +2,7 @@
 
 class Contact
 {
-    public function new($data)
+    public static function new($data)
     {
         $name = $data['name'];
         $email = $data['email'];

@@ -117,3 +117,24 @@ function convert_date($date, $format = 'd/m/Y')
 {
     return date($format, strtotime($date));
 }
+
+function require_all_files($dir)
+{
+    foreach (glob("$dir/*") as $path) {
+        if (preg_match('/\.php$/', $path)) {
+            require_once($path);
+        } elseif (is_dir($path)) {
+            require_all_files($path);
+        }
+    }
+}
+
+function debug_to_console($data) {
+    $output = $data;
+
+    if (is_array($output)) {
+        $output = implode(',', $output);
+    }
+
+    echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
+}

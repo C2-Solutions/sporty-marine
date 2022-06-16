@@ -1,8 +1,10 @@
 <?php
 
+require_once("App/Models/ContactModel.php");
+
 class ContactController
 {
-    public $contacts;
+    protected static $contacts;
 
     public function __construct()
     {
@@ -49,7 +51,7 @@ class ContactController
         view('admin/contact', $content);
     }
 
-    public static function new()
+    public static function createNew()
     {
         $data = array(
             'name' => htmlspecialchars($_POST['name']),
@@ -64,6 +66,7 @@ class ContactController
             !empty($data['email']) &&
             !empty($data['message'])
         ) :
+            // Error: Call to a member function new() on null
             $submission = self::$contacts->new($data);
 
             if ($submission) :

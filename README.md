@@ -5,7 +5,7 @@
 Run the following commands in mysql:
 
 ```bash
-mysql> source test_db.sql
+mysql> source db.sql
 ```
 
 This will create a temporary database with an admin using the following login info:

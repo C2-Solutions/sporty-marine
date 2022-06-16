@@ -12,12 +12,14 @@ require_once('core/functions.php');
 require('core/Routes.php');
 require('routes.php');
 
-// // Where are these used?
-// // $models = scandir('models');
-// $controllers = scandir('controllers');
+require_all_files("/App");
 
+// // Where are these used?
+// $models = scandir('App/Models');
+// $controllers = scandir('App/Controllers');
+
+// loadFilesFromDir($models, 'App/Models');
 // loadFilesFromDir($controllers, 'App/Controllers');
-// // loadFilesFromDir($models, 'App/Models');
 
 $routerOutput = $router->direct(
     Request::uri()

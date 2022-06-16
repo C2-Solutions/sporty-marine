@@ -23,39 +23,39 @@ class Routes
         require 'views/shared/head.view.php';
         self::returnHeader();
 
-        try {
-            if (isset($this->routes['GET']) || isset($this->routes['POST'])) {
-                // If the request method is post it will select the array keys from the POST in the array
-                if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                    $controller = $this->routes['POST'][$uri]['controller'];
-                    $method = $this->routes['POST'][$uri]['method'];
+        // try {
+        if (isset($this->routes['GET']) || isset($this->routes['POST'])) {
+            // If the request method is post it will select the array keys from the POST in the array
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                $controller = $this->routes['POST'][$uri]['controller'];
+                $method = $this->routes['POST'][$uri]['method'];
 
-                    return $controller::$method();
-                // If the request method is get it will select the array keys from the GET in the array
-                } elseif ($_SERVER['REQUEST_METHOD'] === 'GET' && !isset($routes['GET'][$uri])) {
-                    $controller = $this->routes['GET'][$uri]['controller'];
-                    $method = $this->routes['GET'][$uri]['method'];
+                return $controller::$method();
+            // If the request method is get it will select the array keys from the GET in the array
+            } elseif ($_SERVER['REQUEST_METHOD'] === 'GET' && !isset($routes['GET'][$uri])) {
+                $controller = $this->routes['GET'][$uri]['controller'];
+                $method = $this->routes['GET'][$uri]['method'];
 
-                    // Added some protected routes so not anyone has access to these routes
-                    if (!empty($this->routes['GET'][$uri]['protected'])) {
-                        $protectedRoute = $this->routes['GET'][$uri]['protected'];
-                    } else {
-                        $protectedRoute = false;
-                    }
-
-                    $controller::$method();
+                // Added some protected routes so not anyone has access to these routes
+                if (!empty($this->routes['GET'][$uri]['protected'])) {
+                    $protectedRoute = $this->routes['GET'][$uri]['protected'];
                 } else {
-                    // Page doesn't exist, return error
-                    (new NotFoundController())->index();
+                    $protectedRoute = false;
                 }
+
+                $controller::$method();
             } else {
                 // Page doesn't exist, return error
                 (new NotFoundController())->index();
             }
-        } catch (Throwable $e) {
+        } else {
             // Page doesn't exist, return error
             (new NotFoundController())->index();
         }
+        // } catch (Throwable $e) {
+        //     // Page doesn't exist, return error
+        //     (new NotFoundController())->index();
+        // }
         require 'views/shared/footer.view.php';
     }
 
