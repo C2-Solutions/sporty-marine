@@ -1,7 +1,6 @@
 <?php
 
-foreach (glob("App/**/*.php") as $filename)
-{
+foreach (glob("App/**/*.php") as $filename) {
     require_once($filename);
 }
 
