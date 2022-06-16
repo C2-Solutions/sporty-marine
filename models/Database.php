@@ -23,7 +23,11 @@ class Database
     {
         global $conn;
 
-        $sql = "SELECT * FROM `$table` WHERE `id` = ?";
+        if ($table == 'models') :
+            $sql = "SELECT * FROM models INNER JOIN images ON models.id = images.modelid WHERE models.id = ?";
+        else :
+            $sql = "SELECT * FROM `$table` WHERE `id` = ?";
+        endif;
 
         $sth = $conn->prepare($sql);
         $sth->execute(array($id));

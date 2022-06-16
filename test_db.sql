@@ -6,7 +6,6 @@ CREATE TABLE IF NOT EXISTS models
     id      int auto_increment primary key,
     name    varchar(100) not null,
     price   int(9) not null,
-    image   varchar(255),
     length  decimal(5,2) not null,
     width   decimal(5,2) not null,
     weight  int(5) not null,

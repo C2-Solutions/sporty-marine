@@ -3,7 +3,7 @@
         <a id="model_<?php echo $model['id']; ?>"
             href="
             <?php echo IsAdmin() ? 'edit-model?id=' : 'model?id=';
-            echo $model['id']; ?>">
+            echo $model['modelid']; ?>">
             <img src="public/img/<?php echo $model['image']; ?>"
                  class="card-img-top" alt="..." style="width: 494px; height: 200px">
         </a>
