@@ -1,5 +1,3 @@
-<?php
-?>
 <div class="container" style="width: 60%; margin-top: 10px; margin-bottom: 20px">
     <div class="row">
         <div class="card">

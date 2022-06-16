@@ -6,22 +6,22 @@ class ContactController
 {
     public static function index()
     {
-        require(new ViewModel())->extendPath('views/contact.view.php');
-    }
-
-    public static function adminContactIndex()
-    {
         global $conn;
 
         $content['contacts'] = false;
 
-        $contacts = $conn->read('contact');
+        $contacts = $conn->read('contact_inquiries');
 
         if (!empty($contacts)) :
             $content['contacts'] = $contacts;
         endif;
 
-        view('admin/contacts', $content);
+        if (!empty(IsAdmin())) {
+            require(new ViewModel())->extendPath("views/admin/contacts.view.php", $content);
+            exit;
+        }
+
+        require(new ViewModel())->extendPath('views/contact.view.php');
     }
 
     public static function contactInformation($id)
