@@ -13,7 +13,7 @@
                 <div class="card-body">
                     <div class="form-group row">
                         <label class="col-md-2 col-form-label"><b>E-mailadres:</b></label>
-                        <div class="col-md-3 col-form-label">
+                        <div class="col-md-2 col-form-label">
                             <?php echo $contact['email'];?>
                         </div>
 
@@ -23,8 +23,8 @@
                         </div>
 
                         <label class="col-md-2 col-form-label"><b>Gevraagd op:</b></label>
-                        <div class="col-md-1 col-form-label">
-                            <?php echo convert_date($contact['date']) ?>
+                        <div class="col-md-2 col-form-label">
+                            <?php echo convert_date($contact['created_at']) ?>
                         </div>
                     </div>
 

@@ -30,10 +30,10 @@ class ContactController
 
         $content['contact'] = false;
 
-        $contact = $conn->getById($id, 'contact');
+        $contact = $conn->getById($id, 'contact_inquiries')[0];
 
         if (!$contact) :
-            redirect('/admin-contacts');
+            redirect('/contact');
             exit;
         endif;
 
@@ -41,7 +41,7 @@ class ContactController
             $content['contact'] = $contact;
         endif;
 
-        view('admin/contact', $content);
+        require(new ViewModel())->extendPath("views/admin/contact.view.php", $content);
     }
 
     public static function createNew()
@@ -78,13 +78,13 @@ class ContactController
     {
         global $conn;
 
-        $deleted = $conn->delete($id, 'contact');
+        $deleted = $conn->delete($id, 'contact_inquiries');
 
-        if ($deleted) :
+        if (!$deleted) :
             return redirect('/admin-contacts');
             exit;
         endif;
 
-        echo 'error';
+        redirect("/error");
     }
 }

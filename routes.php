@@ -26,6 +26,18 @@ $routes = $router->define(
                 'name' => 'Contact',
                 'title' => 'Contact' . $namesuffix
             ],
+            $preroute . 'admin-contact' => [
+                'controller' => 'ContactController',
+                'method' => 'contactInformation',
+                'name' => 'Contact',
+                'title' => 'Contact' . $namesuffix
+            ],
+            $preroute . 'delete-contact' => [
+                'controller' => 'ContactController',
+                'method' => 'delete',
+                'name' => 'Contact',
+                'title' => 'Deleting' . $namesuffix
+            ],
             $preroute . 'boats' => [
                 'controller' => 'BoatController',
                 'method' => 'index',
