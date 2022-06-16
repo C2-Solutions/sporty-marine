@@ -1,6 +1,8 @@
+<?php echo '<pre>' , var_dump($model) , '</pre>';
+?>
 <div class="container" style="width: 60%; margin-top: 10px; margin-bottom: 20px">
     <div class="row">
-        <div class="card" id="model_<?php echo $model['id']; ?>">
+        <div class="card" id="model_<?php echo ['id']; ?>">
             <img src="public/img/<?php echo $model['image']; ?>"
                  class="card-img-top" alt="..." style="margin-top: 10px">
             <div class="card-body">

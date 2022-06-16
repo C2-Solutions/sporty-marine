@@ -35,7 +35,6 @@ $routes = $router->define(
             $preroute . 'boat' => [
                 'controller' => 'BoatController',
                 'method' => 'boatInformation',
-//                'id' => htmlspecialchars($_GET['id']),
                 'name' => 'Boats',
                 'title' => 'Models' . $namesuffix
             ],

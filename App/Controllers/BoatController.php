@@ -52,14 +52,15 @@ class BoatController
 
         if (!empty($model)) :
             $content['model'] = $model;
+            echo '<pre>', var_dump($content), '</pre>';
+
         endif;
 
-        if ($model['availability'] == 1) :
+//        if ($model['availability'] == 1) :
             require(new ViewModel())->extendPath('views/' . PAGE_NAME . '.view.php', $content);
-//            view('model', $content);
-        else :
-            redirect('/boats');
-        endif;
+//        else :
+//            redirect('/boats');
+//        endif;
     }
 
     public static function newModel()
@@ -71,7 +72,7 @@ class BoatController
     {
         $content['model'] = false;
 
-        $model = $this->conn->getById($id, 'models');
+        $model = self::$conn->getById($id, 'models');
 
         if (!$model) :
             redirect('/admin-modellen');
@@ -120,7 +121,7 @@ class BoatController
             !empty($data['cec']) &&
             !empty($data['status'])
         ) :
-            $submission = $this->boat->new($data);
+            $submission = self::$boat->new($data);
 
             if ($submission) :
                 $_SESSION['modelsent'] = true;
@@ -169,7 +170,7 @@ class BoatController
             !empty($data['cec']) &&
             !empty($data['status'])
         ) :
-            $submission = $this->models->edit($data);
+            $submission = self::$boat->edit($data);
 
             if ($submission) :
                 redirect("/admin-modellen");
@@ -185,7 +186,7 @@ class BoatController
 
     public static function delete($id)
     {
-        $deleted = $this->conn->delete($id, 'models');
+        $deleted = self::$conn->delete($id, 'models');
 
         if ($deleted) :
             return redirect('/admin-modellen');

@@ -18,7 +18,7 @@ class Routes
     // Direct the user to the given uri
     public function direct($uri)
     {
-        // var_dump($uri);
+//        var_dump($uri);
         define('PAGE_NAME', $uri);
         require 'views/shared/head.view.php';
         self::returnHeader();
@@ -36,7 +36,6 @@ class Routes
             } elseif ($_SERVER['REQUEST_METHOD'] === 'GET' && !isset($routes['GET'][$uri])) {
                 $controller = $this->routes['GET'][$uri]['controller'];
                 $method = $this->routes['GET'][$uri]['method'];
-//                $id = $this->routes['GET'][$uri]['id'];
 
                 // Added some protected routes so not anyone has access to these routes
                 if (!empty($this->routes['GET'][$uri]['protected'])) {
@@ -44,8 +43,12 @@ class Routes
                 } else {
                     $protectedRoute = false;
                 }
-
-                $controller::$method();
+                if (isset($_GET['id'])) {
+                    $id = htmlspecialchars($_GET['id']);
+                    $controller::$method($id);
+                } else {
+                    $controller::$method();
+                }
             } else {
                 // Page doesn't exist, return error
                 (new NotFoundController())->index();

@@ -21,7 +21,12 @@ class DatabaseController
 
     public function read($table, $row = "*", $order = "id")
     {
-        $sql = "SELECT $row FROM $table ORDER BY $order";
+        if ($table == 'models') :
+            $sql = "SELECT * FROM models, images WHERE models.id = images.modelid";
+        else :
+            $sql = "SELECT $row FROM $table ORDER BY $order";
+        endif;
+
         return self::executeQuery($sql);
     }
 
@@ -38,14 +43,17 @@ class DatabaseController
         return self::executeQuery($sql, $key);
     }
 
-    public static function getById($id, $table)
+    public function getById($id, $table)
     {
-        $sql = "SELECT * FROM `$table` WHERE `id` = ?";
+        if ($table == 'models') :
+            $sql = "SELECT * FROM models INNER JOIN images ON models.id = images.modelid WHERE models.id = ?";
+        else :
+            $sql = "SELECT * FROM `$table` WHERE `id` = ?";
+        endif;
 
-        $sth = self::executeQuery($sql, array($id));
-        $results = $sth->fetch();
+        $results = self::executeQuery($sql, array($id));
 
-        if (!empty($results) && true == is_array($results)) :
+        if (!empty($results) && is_array($results)) :
             return $results;
         endif;
 
