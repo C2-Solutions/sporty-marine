@@ -26,6 +26,7 @@ class BoatController
 
         if (!empty($models)) :
             $content['models'] = $models;
+
         endif;
 
         if (!empty(IsAdmin())) {
@@ -41,7 +42,7 @@ class BoatController
 
         $content['model'] = false;
 
-        $model = $conn->getById($id, 'models');
+        $model = ($conn->getById($id, 'models'))[0];
 
         if (!$model) :
             redirect('/boats');
@@ -50,15 +51,14 @@ class BoatController
 
         if (!empty($model)) :
             $content['model'] = $model;
-            echo '<pre>', var_dump($content), '</pre>';
 
         endif;
 
-//        if ($model['availability'] == 1) :
-            require(new ViewModel())->extendPath('views/' . PAGE_NAME . '.view.php', $content);
-//        else :
-//            redirect('/boats');
-//        endif;
+        if ($model['availability'] == 1) :
+            require(new ViewModel())->extendPath('views/boat.view.php', $content);
+        else :
+            redirect('/boats');
+        endif;
     }
 
     public static function newModel()

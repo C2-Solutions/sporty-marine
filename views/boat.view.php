@@ -1,8 +1,6 @@
-<?php echo '<pre>' , var_dump($model) , '</pre>';
-?>
 <div class="container" style="width: 60%; margin-top: 10px; margin-bottom: 20px">
     <div class="row">
-        <div class="card" id="model_<?php echo ['id']; ?>">
+        <div class="card" id="model_<?php echo $model['id']; ?>">
             <img src="public/img/<?php echo $model['image']; ?>"
                  class="card-img-top" alt="..." style="margin-top: 10px">
             <div class="card-body">
@@ -27,8 +25,12 @@
                         <td><?php echo $model['price']; ?></td>
                     </tr>
                     <tr>
+                        <td>Boottype:</td>
+                        <td><?php echo $model['type']; ?></td>
+                    </tr>
+                    <tr>
                         <td>Lengte:</td>
-                        <td><?php echo $model['length']; ?></td>
+                        <td><?php echo $model['lgth']; ?></td>
                     </tr>
                     <tr>
                         <td>Breedte:</td>

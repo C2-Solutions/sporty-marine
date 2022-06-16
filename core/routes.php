@@ -34,7 +34,6 @@ class Routes
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $controller = $this->routes['POST'][$uri]['controller'];
                 $method = $this->routes['POST'][$uri]['method'];
-//                $id = $this->routes['GET'][$uri]['id'];
 
                 return $controller::$method();
             // If the request method is get it will select the array keys from the GET in the array

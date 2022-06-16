@@ -27,6 +27,10 @@
                     </td>
                 </tr>
                 <tr>
+                    <td>Boottype:</td>
+                    <td><?php echo $model['type'];?></td>
+                </tr>
+                <tr>
                     <td>Status:</td>
                     <td><?php echo $model['status'];?></td>
                 </tr>

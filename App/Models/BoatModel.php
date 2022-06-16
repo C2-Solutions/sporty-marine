@@ -53,7 +53,7 @@ class Boat
 
         $sql = "UPDATE models
         SET price = '$price',
-            length = '$length',
+            lgth = '$length',
             width = '$width',
             weight = '$weight',
             airdraft = '$airdraft',

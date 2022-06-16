@@ -22,7 +22,8 @@ class DatabaseController
     public function read($table, $row = "*", $order = "id")
     {
         if ($table == 'models') :
-            $sql = "SELECT * FROM models, boattype WHERE models.boattype = boattype.id";
+            $sql = "SELECT models.id, boattype, name, price, image, status, availability, type from models, boattype 
+            WHERE models.boattype = boattype.id";
         else :
             $sql = "SELECT $row FROM $table ORDER BY $order";
         endif;
@@ -46,7 +47,9 @@ class DatabaseController
     public function getById($id, $table)
     {
         if ($table == 'models') :
-            $sql = "SELECT * FROM models INNER JOIN boattype ON models.boattype = boattype.id WHERE models.id = ?";
+            $sql = "SELECT models.id, boattype, name, price, description, image, lgth, width, weight, airdraft, 
+            draft, maxpk, maxpers, builtin, cec, status, availability, type from models, boattype 
+            WHERE models.id = ? AND models.boattype = boattype.id";
         else :
             $sql = "SELECT * FROM `$table` WHERE `id` = ?";
         endif;
