@@ -29,7 +29,6 @@ class Routes
         require 'views/shared/head.view.php';
         self::returnHeader();
 
-        // try {
         if (isset($this->routes['GET']) || isset($this->routes['POST'])) {
             // If the request method is post it will select the array keys from the POST in the array
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -39,7 +38,7 @@ class Routes
 
                 return $controller::$method();
             // If the request method is get it will select the array keys from the GET in the array
-            } elseif ($_SERVER['REQUEST_METHOD'] === 'GET' && !isset($routes['GET'][$uri])) {
+            } elseif ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($this->routes['GET'][$uri])) {
                 $controller = $this->routes['GET'][$uri]['controller'];
                 $method = $this->routes['GET'][$uri]['method'];
 
@@ -63,10 +62,7 @@ class Routes
             // Page doesn't exist, return error
             (new NotFoundController())->index();
         }
-        // } catch (Throwable $e) {
-        //     // Page doesn't exist, return error
-        //     (new NotFoundController())->index();
-        // }
+
         require 'views/shared/footer.view.php';
     }
 
