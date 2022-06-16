@@ -28,13 +28,11 @@ class BoatController
             $content['models'] = $models;
         endif;
 
-        if (!empty(IsAdmin())) :
-//            view('admin/boats', $content);
-             require(new ViewModel())->extendPath('views/' . PAGE_NAME . '.view.php');
-        else :
-//            view('boats', $content);
-             require(new ViewModel())->extendPath('views/' . PAGE_NAME . '.view.php', $content);
-        endif;
+        if (empty(IsAdmin())) {
+             $content = null;
+        }
+
+        require(new ViewModel())->extendPath("views/boats.view.php", $content);
     }
 
     public static function boatInformation($id)

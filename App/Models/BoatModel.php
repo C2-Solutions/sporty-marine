@@ -6,7 +6,7 @@ class Boat
     {
         $name = $data['name'];
         $price = $data['price'];
-        $length = $data['length'];
+        $length = $data['lgth'];
         $width = $data['width'];
         $weight = $data['weight'];
         $airdraft = $data['airdraft'];
@@ -20,7 +20,7 @@ class Boat
         $description = $data['description'];
 
         $sql = "INSERT INTO models
-                (name, price, length , width, weight, airdraft, draft,
+                (name, price, lgth, width, weight, airdraft, draft,
                  maxpk, maxpers, builtin, cec, status, availability, description)
                 VALUES
                ('$name', '$price', '$length', '$width', '$weight', '$airdraft',
