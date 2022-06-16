@@ -18,6 +18,7 @@ class Models
         $status = $data['status'];
         $availability = $data['availability'];
         $description = $data['description'];
+        $images = $data['images'];
 
         $sql = "INSERT INTO models 
                 (name, price, length , width, weight, airdraft, draft, 
@@ -25,9 +26,13 @@ class Models
                 VALUES 
                ('$name', '$price', '$length', '$width', '$weight', '$airdraft',
                 '$draft', '$maxpk', '$maxpers', '$builtin', '$cec', '$status', '$availability', '$description')";
+        $sqlimage = "INSERT INTO images (modelid, image) VALUES ((SELECT id from models WHERE name='$name'), '$images')";
         $created = executeSql($sql);
+        $imagecreated = executeSql($sqlimage);
 
-        if ($created) {
+
+
+        if ($created && $imagecreated) {
             return true;
         }
 

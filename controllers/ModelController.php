@@ -90,6 +90,7 @@ class ModelController
             'status' => htmlspecialchars($_POST['status']),
             'availability' => htmlspecialchars($_POST['beschikbaarheid']),
             'description' => htmlspecialchars($_POST['beschrijving']),
+            'images' => htmlspecialchars($_FILES['fotos']['name']),
         );
 
         if (
@@ -106,15 +107,21 @@ class ModelController
             !empty($data['maxpers']) &&
             !empty($data['builtin']) &&
             !empty($data['cec']) &&
-            !empty($data['status'])
+            !empty($data['status']) &&
+            !empty($data['images'])
         ) :
             $submission = $this->models->new($data);
 
-            if ($submission) :
+
+        $tempname = $_FILES['fotos']['tmp_name'];
+        $folder = "public/img/".$data['images'];
+
+            if ($submission && move_uploaded_file($tempname, $folder)) :
                 $_SESSION['modelsent'] = true;
                 redirect('/admin-modellen');
                 exit;
             endif;
+
 
             redirect('/error');
             exit;
