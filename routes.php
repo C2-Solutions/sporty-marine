@@ -32,6 +32,13 @@ $routes = $router->define(
                 'name' => 'Boats',
                 'title' => 'Models' . $namesuffix
             ],
+            $preroute . 'boat' => [
+                'controller' => 'BoatController',
+                'method' => 'boatInformation',
+//                'id' => htmlspecialchars($_GET['id']),
+                'name' => 'Boats',
+                'title' => 'Models' . $namesuffix
+            ],
             $preroute . 'login' => [
                 'controller' => 'AuthenticationController',
                 'method' => 'index',

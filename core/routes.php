@@ -29,12 +29,14 @@ class Routes
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $controller = $this->routes['POST'][$uri]['controller'];
                 $method = $this->routes['POST'][$uri]['method'];
+//                $id = $this->routes['GET'][$uri]['id'];
 
                 return $controller::$method();
             // If the request method is get it will select the array keys from the GET in the array
             } elseif ($_SERVER['REQUEST_METHOD'] === 'GET' && !isset($routes['GET'][$uri])) {
                 $controller = $this->routes['GET'][$uri]['controller'];
                 $method = $this->routes['GET'][$uri]['method'];
+//                $id = $this->routes['GET'][$uri]['id'];
 
                 // Added some protected routes so not anyone has access to these routes
                 if (!empty($this->routes['GET'][$uri]['protected'])) {

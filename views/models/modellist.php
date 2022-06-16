@@ -2,7 +2,7 @@
     <div class="card" id="model_<?php echo $model['id'];?>" style="margin-bottom: 10px">
         <a id="model_<?php echo $model['id']; ?>"
             href="
-            <?php echo IsAdmin() ? 'edit-model?id=' : 'model?id=';
+            <?php echo IsAdmin() ? 'edit-boat?id=' : 'boat?id=';
             echo $model['id']; ?>">
             <img src="public/img/<?php echo $model['image']; ?>"
                  class="card-img-top" alt="..." style="width: 494px; height: 200px">
@@ -23,7 +23,7 @@
                 <tr>
                     <td>Prijs:</td>
                     <td>
-                        <b>€ <?php echo number_format($model['price'], thousands_separator: '.'); ?>,-</b>
+                        <b>€ <?php echo number_format($model['price'], 2, ',', '.'); ?>,-</b>
                     </td>
                 </tr>
                 <tr>

@@ -9,7 +9,7 @@
     <?php
     if (!empty($models)) :
         foreach ($models as $model) {
-                require('views/shared/modellist.php');
+                require('views/models/modellist.php');
         }
     else :
         echo 'Er bestaan nog geen modellen.';

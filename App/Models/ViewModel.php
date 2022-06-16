@@ -8,8 +8,12 @@ class ViewModel
         $this->hostname = gethostname();
     }
 
-    public function extendPath(string $path): string
+    public function extendPath(string $path, $contents = array()): string
     {
+        if (is_array($contents) && !empty(($contents))) :
+            extract($contents);
+        endif;
+
         if ($this->verifyClowHost()) {
             return "/var/www/html/flevonautica/" . $path;
         }

@@ -29,22 +29,24 @@ class BoatController
         endif;
 
         if (!empty(IsAdmin())) :
-            view('admin/boats', $content);
-            // require(new ViewModel())->extendPath('views/' . PAGE_NAME . '.view.php');
+//            view('admin/boats', $content);
+             require(new ViewModel())->extendPath('views/' . PAGE_NAME . '.view.php');
         else :
-            view('boats', $content);
-            // require(new ViewModel())->extendPath('views/' . PAGE_NAME . '.view.php');
+//            view('boats', $content);
+             require(new ViewModel())->extendPath('views/' . PAGE_NAME . '.view.php', $content);
         endif;
     }
 
-    public function modelInformation($id)
+    public static function boatInformation($id)
     {
+        global $conn;
+
         $content['model'] = false;
 
-        $model = $this->conn->getById($id, 'models');
+        $model = $conn->getById($id, 'models');
 
         if (!$model) :
-            redirect('/modellen');
+            redirect('/boats');
             exit;
         endif;
 
@@ -53,18 +55,19 @@ class BoatController
         endif;
 
         if ($model['availability'] == 1) :
-            view('model', $content);
+            require(new ViewModel())->extendPath('views/' . PAGE_NAME . '.view.php', $content);
+//            view('model', $content);
         else :
             redirect('/boats');
         endif;
     }
 
-    public function newModel()
+    public static function newModel()
     {
         view('admin/new-model');
     }
 
-    public function editModel($id)
+    public static function editModel($id)
     {
         $content['model'] = false;
 
@@ -82,7 +85,7 @@ class BoatController
         view('admin/edit-model', $content);
     }
 
-    public function new()
+    public static function new()
     {
         $data = array(
             'name' => htmlspecialchars($_POST['naam']),
@@ -132,7 +135,7 @@ class BoatController
         redirect('/error2');
     }
 
-    public function edit()
+    public static function edit()
     {
         $data = array(
             'id' => $_POST['id'],
@@ -180,7 +183,7 @@ class BoatController
         redirect("/error2");
     }
 
-    public function delete($id)
+    public static function delete($id)
     {
         $deleted = $this->conn->delete($id, 'models');
 

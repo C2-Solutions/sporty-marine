@@ -4,13 +4,6 @@ require_once("App/Models/ContactModel.php");
 
 class ContactController
 {
-    protected static $contacts;
-
-    public function __construct()
-    {
-        self::$contacts = new Contact();
-    }
-
     public static function index()
     {
         require(new ViewModel())->extendPath('views/contact.view.php');
