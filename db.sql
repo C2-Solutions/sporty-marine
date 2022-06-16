@@ -1,4 +1,4 @@
-CREATE DATABASE IF NOT EXISTS flevonautica;
+CREATE DATABASE IF NOT EXISTS FLEVONAUTICA;
 USE flevonautica;
 
 CREATE TABLE IF NOT EXISTS boattype
@@ -57,5 +57,5 @@ create table IF NOT EXISTS images
 );
 
 -- Create admin user. MAKE SURE TO CHANGE THIS TO SOMETHING SECURE
-INSERT INTO users (username, password)
-VALUES ('admin', 'password123');
+/* INSERT INTO users (username, password)
+VALUES ('admin', 'password123'); */

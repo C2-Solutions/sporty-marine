@@ -79,8 +79,16 @@ class AuthenticationController
         $password = htmlspecialchars($_POST['password']);
         $hashedPwd = self::hashPassword($password);
 
-        $conn->create('users', ['username', 'password'], [$username, $hashedPwd]);
-        echo "Account has been created! Redirecting you to the login page...";
-        header("refresh:3;url=login");
+        try {
+            $conn->create('users', ['id', 'username', 'password'], [1, $username, $hashedPwd]);
+            echo "Account has been created! Redirecting you to the login page...";
+            header("refresh:3;url=login");
+        } catch (PDOException $e) {
+            echo "Max limit of accounts has been exceeded! Redirecting you to home now...";
+            header("refresh:3;url=/");
+        } catch (Exception $e) {
+            echo "Some kind of error occurred! Redirecting you to home now...";
+            header("refresh:3;url=/");
+        }
     }
 }

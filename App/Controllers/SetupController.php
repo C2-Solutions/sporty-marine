@@ -4,8 +4,6 @@ class SetupController
 {
     public static function index()
     {
-        var_dump(self::verifyAccount());
-        exit();
         if (!self::verifyAccount()) {
             (new NotFoundController())->index();
         } else {
@@ -18,7 +16,7 @@ class SetupController
     {
         global $pdo;
 
-        echo count($pdo->prepare('SELECT * FROM users')->fetchAll(PDO::FETCH_ASSOC));
+        // TODO: Fix. This seems to always return an empty array and idk why
         return count($pdo->prepare('SELECT * FROM users')->fetchAll(PDO::FETCH_ASSOC)) == 0;
     }
 }
