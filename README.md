@@ -1,31 +1,35 @@
 # Sporty Marine
 
-# Groepsleden
-- Bryan Bao 
+## Groepsleden
+
+- Bryan Bao
 - Enno Andel
 - Remco Denekamp
 - Michael Vrijbrug
 - Joost Dijkstra
 
-# Relevante documenten: 
-- Projectdefinitie: https://docs.google.com/document/d/1dld1MEQZXLTkF2HZgFMW62Ycbzer9MT_L3y4cgfvelI/edit?usp=sharing
+## Relevante documentatie
 
-# Live omgeving
+- [Projectdefinitie](https://docs.google.com/document/d/1dld1MEQZXLTkF2HZgFMW62Ycbzer9MT_L3y4cgfvelI/edit?usp=sharing)
+
+## Live environment
+
 - Onze klant had nog geen live omgeving geregeld dus alles is nog lokaal.
 
-# Code:
-- Github: https://github.com/C2-Solutions/sporty-marine
+## Code
 
-# Database Dump 
-- Deze vind je in de file "db.sql"
+- [Github](https://github.com/C2-Solutions/sporty-marine)
 
+## Database Dump
 
-# Inloggegevens stappenplan
+- Te vinden in [db.sql]([db_sql](https://github.com/C2-Solutions/sporty-marine/blob/master/db.sql))
+
+## Inloggegevens stappenplan
 
 1) Change username and password in the following files:
 
-   * database.ini
-   * db.sql (bottom of the file)
+   - database.ini
+   - db.sql (bottom of the file)
 
    By default these are the following values:
 
