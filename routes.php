@@ -78,18 +78,21 @@ $routes = $router->define(
                 'controller' => 'BoatController',
                 'method' => 'typeIndex',
                 'name' => 'Boat',
+                'protected' => true,
                 'title' => 'Boattypes' . $namesuffix
             ],
             $preroute . 'new-type' => [
                 'controller' => 'BoatController',
                 'method' => 'newTypeIndex',
                 'name' => 'Boat',
+                'protected' => true,
                 'title' => 'New type' . $namesuffix
             ],
             $preroute . 'delete-type' => [
                 'controller' => 'BoatController',
                 'method' => 'deleteType',
                 'name' => 'Boat',
+                'protected' => true,
                 'title' => 'Deleting' . $namesuffix
             ],
             $preroute . 'login' => [
@@ -102,6 +105,7 @@ $routes = $router->define(
                 'controller' => 'AuthenticationController',
                 'method' => 'logoutIndex',
                 'name' => 'Logout',
+                'protected' => true,
                 'title' => "Logout" . $namesuffix
             ],
             $preroute . 'setup' => [
@@ -118,7 +122,8 @@ $routes = $router->define(
             ],
             $preroute . 'logout' => [
                 'controller' => 'AuthenticationController',
-                'method' => 'logoutUser'
+                'method' => 'logoutUser',
+                'protected' => true,
             ],
             $preroute . 'setup' => [
                 'controller' => 'AuthenticationController',
@@ -130,17 +135,21 @@ $routes = $router->define(
             ],
             $preroute . 'new-boat' => [
                 'controller' => 'BoatController',
-                'method' => 'new'
+                'method' => 'new',
+                'protected' => true,
             ],
             $preroute . 'edit-boat' => [
                 'controller' => 'BoatController',
-                'method' => 'edit'
+                'method' => 'edit',
+                'protected' => true,
             ],$preroute . 'new-type' => [
                 'controller' => 'BoatController',
-                'method' => 'newType'
+                'method' => 'newType',
+                'protected' => true,
             ],$preroute . 'edit-type' => [
                 'controller' => 'BoatController',
-                'method' => 'editType'
+                'method' => 'editType',
+                'protected' => true,
             ],
         ]
     ]

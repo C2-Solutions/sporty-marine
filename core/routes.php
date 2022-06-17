@@ -1,5 +1,7 @@
 <?php
 
+use PhpParser\Node\Expr\Isset_;
+
 foreach (glob("App/**/*.php") as $filename) {
     require_once($filename);
 }
@@ -47,6 +49,11 @@ class Routes
                 } else {
                     $protectedRoute = false;
                 }
+
+                if ($protectedRoute === true && (!isset($_SESSION['loggedin']))) {
+                    (new NotFoundController())->index();
+                }
+
                 if (isset($_GET['id'])) {
                     $id = htmlspecialchars($_GET['id']);
                     $controller::$method($id);
@@ -67,12 +74,12 @@ class Routes
 
     protected function returnHeader($protectedRoute = false)
     {
-        if ($protectedRoute) {
-            if ($_SESSION['loggedin']) {
-                require 'views/shared/admin-header.view.php';
-            }
-        } else {
-            require 'views/shared/header.view.php';
-        }
+        // if ($protectedRoute) {
+        //     if ($_SESSION['loggedin']) {
+        //         require 'views/shared/admin-header.view.php';
+        //     }
+        // } else {
+        require 'views/shared/header.view.php';
+        // }
     }
 }
