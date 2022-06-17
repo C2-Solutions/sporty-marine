@@ -81,7 +81,7 @@ class ContactController
         $deleted = $conn->delete($id, 'contact_inquiries');
 
         if (!$deleted) :
-            return redirect('/admin-contacts');
+            return redirect('/contacts');
             exit;
         endif;
 
