@@ -27,7 +27,7 @@
                             <a class="nav-link" href="boattype">Add boottypes</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="admin-dashboard">Dashboard</a>
+                            <a class="nav-link" href="dashboard">Dashboard</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="logout">Logout</a>
