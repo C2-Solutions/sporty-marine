@@ -1,6 +1,26 @@
 # Sporty Marine
 
-## Creating your account
+# Groepsleden
+- Bryan Bao 
+- Enno Andel
+- Remco Denekamp
+- Michael Vrijbrug
+- Joost Dijkstra
+
+# Relevante documenten: 
+- Projectdefinitie: https://docs.google.com/document/d/1dld1MEQZXLTkF2HZgFMW62Ycbzer9MT_L3y4cgfvelI/edit?usp=sharing
+
+# Live omgeving
+- Onze klant had nog geen live omgeving geregeld dus alles is nog lokaal.
+
+# Code:
+- Github: https://github.com/C2-Solutions/sporty-marine
+
+# Database Dump 
+- Deze vind je in de file "db.sql"
+
+
+# Inloggegevens stappenplan
 
 1) Change username and password in the following files:
 
