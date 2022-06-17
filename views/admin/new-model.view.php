@@ -156,7 +156,6 @@
                         <input type="file" name="fotos" accept="image/jpg"><br>
                         <input type="submit" name="new" value="Alles opslaan" class="btn btn-primary"
                                onclick="return confirm('Weet je zeker dat je dit wilt opslaan?')">
-                        <?php endif;?>
                     </div>
                     </form>
                 </p>
