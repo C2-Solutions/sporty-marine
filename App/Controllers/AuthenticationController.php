@@ -34,7 +34,7 @@ class AuthenticationController
         $_SESSION = array();
     }
 
-    private static function verifyLogin($password)
+    private static function verifyLogin()
     {
         global $pdo;
 

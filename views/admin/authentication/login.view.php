@@ -8,12 +8,6 @@ if (isset($_POST['login'])) {
 
 ?>
 
-<?php
-
-// echo ();
-
-?>
-
 <div class="error-message">
     <?php echo (!empty($errorMessage)) ? $errorMessage : ''; ?>
 </div>
