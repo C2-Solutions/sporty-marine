@@ -13,6 +13,9 @@
                         <a class="nav-link" href="admin-modellen">Modellen</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="boattype">Boottypes</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="admin-contacts">Contact</a>
                     </li>
                     <li class="nav-item">

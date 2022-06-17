@@ -34,7 +34,7 @@ class AuthenticationController
         $_SESSION = array();
     }
 
-    private static function verifyLogin($password)
+    private static function verifyLogin()
     {
         global $pdo;
 
@@ -44,11 +44,7 @@ class AuthenticationController
             $logged = $stmt->fetch();
 
             if ($logged) {
-                $stmt->bindparam($logged['id'], $password);
-                $stmt->fetch();
-
-                $hashPwd = self::hashPassword($password);
-                if (password_verify($_POST['password'], $hashPwd)) {
+                if (password_verify($_POST['password'], $logged['password'])) {
                     session_regenerate_id();
                     $_SESSION['loggedin'] = true;
                     $_SESSION['username'] = $_POST['username'];
