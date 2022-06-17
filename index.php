@@ -1,12 +1,26 @@
 <?php
 
-require 'core/bootstrap.php';
-//require 'views/home.views.php';
+ini_set("display_errors", "1");
 
-$router = new Router();
+require_once('config/config.php');
+require_once('vendor/autoload.php');
 
-require 'routes.php'; //Die de method define uitvoert en de de routes klaar zet.
+require_once('core/bootstrap.php');
+require_once('core/request.php');
+require_once('core/functions.php');
 
-$uri =  trim($_SERVER['REQUEST_URI'], '/');
+require('core/Routes.php');
+require('routes.php');
 
-require $router->direct($uri); //geef ons de pagina wanneer we op deze uri komen.
+require_all_files("/App");
+
+// // Where are these used?
+// $models = scandir('App/Models');
+// $controllers = scandir('App/Controllers');
+
+// loadFilesFromDir($models, 'App/Models');
+// loadFilesFromDir($controllers, 'App/Controllers');
+
+$routerOutput = $router->direct(
+    Request::uri()
+);

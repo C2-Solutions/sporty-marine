@@ -1,6 +1,9 @@
-<footer class="text-black text-center text-lg-start" style="background-color: powderblue">
+<?php
+?>
+
+<footer class="text-black text-center text-lg-start footer mt-3" style="background-color: powderblue">
     <!-- Grid container -->
-    <div class="container p-4">
+    <div class="container p-2">
         <!--Grid row-->
         <div class="row">
             <!--Grid column-->
@@ -62,9 +65,10 @@
     <!-- Grid container -->
 
     <!-- Copyright -->
-    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    <div class="text-center p-1" style="background-color: rgba(0, 0, 0, 0.2);">
         © <?php echo date("Y"); ?> Copyright:
         <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
     </div>
     <!-- Copyright -->
 </footer>
+</body>
