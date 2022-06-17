@@ -5,14 +5,18 @@
     </button>
 </h2>
 
+<?php
+if (!empty($models)) :
+    ?>
 <div class="modellen row row-cols-1 row-cols-md-3 g-4">
     <?php
-    if (!empty($models)) :
-        foreach ($models as $model) {
-                require('views/models/modellist.php');
-        }
-    else :
-        echo 'Er bestaan nog geen modellen.';
-    endif;
-    ?>
-</div>
+    foreach ($models as $model) {
+        if ($model['availability'] == 1) :
+            require('views/models/modellist.php');
+        endif;
+    }
+    echo '</div>';
+else :
+    echo '<div class="center"><b>Er bestaan nog geen modellen.</b></div><br><br><br><br><br><br>';
+endif;
+?>
