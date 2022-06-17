@@ -57,7 +57,7 @@ INSERT INTO flevonautica.boattype (type) VALUES ('Sailboat');
 
 INSERT INTO flevonautica.models (id, boattype, name, price, description, image, lgth, width, weight, airdraft, draft, maxpk, maxpers, builtin, cec, status, availability) VALUES (1, 1, 'Sporty 15', 15000, 'Dit is een van onze topboten!
 
-              Kwaliteit en klasse krijg je zelden voor deze goedkope prijs!', 'testboot.jpg', 15.00, 3.00, 300.00, 50, 20.00, 50, 5, 2022, 'A', 'Nieuw', 1)
+              Kwaliteit krijg je zelden voor deze prijs!!', 'testboot.jpg', 15.00, 3.00, 300.00, 50, 20.00, 50, 5, 2022, 'A', 'Nieuw', 1)
 
 INSERT INTO flevonautica.contact_inquiries (name, email, phone, message, created_at) VALUES ('Jan Jansen', 'Jan.Jansen@gmail.com', '068881459', 'Ik wil graag een boot bekijken? Kan dat? Mail me terug a.u.b.', DEFAULT)
 
