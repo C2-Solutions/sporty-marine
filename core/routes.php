@@ -68,7 +68,7 @@ class Routes
     protected function returnHeader($protectedRoute = false)
     {
         if ($protectedRoute) {
-            if ($_SESSION['user_logged_in']) {
+            if ($_SESSION['loggedin']) {
                 require 'views/shared/admin-header.view.php';
             }
         } else {
