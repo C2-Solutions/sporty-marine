@@ -10,10 +10,10 @@
             <a class="navbar-brand" href="/">Sporty Marine</a>
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="admin-modellen">Modellen</a>
+                        <a class="nav-link" href="boats">Modellen</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="admin-contacts">Contact</a>
+                        <a class="nav-link" href="contacts">Contact</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="admin-dashboard">Ingelogd als: <?php echo $_SESSION['username']?></a>

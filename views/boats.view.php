@@ -1,4 +1,4 @@
-<h1 style="color: dimgray; text-align: center">Dit is de modellenpagina</h1>
+<h1 style="color: dimgray; text-align: center">Dit zijn onze Sporty's!</h1>
 
 <div class="modellen row row-cols-1 row-cols-md-3 g-4">
     <?php
