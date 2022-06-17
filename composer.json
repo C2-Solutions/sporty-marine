@@ -37,11 +37,10 @@
         "email": "ronan.nieuwenhuijse@windesheim.nl",
         "role": "Developer"
     }],
-    <<
-    << << < HEAD "minimum-stability": "stable",
+    "minimum-stability": "stable",
     "require-dev": {
         "composer/composer": "^2.0",
-        "overtrue/phplint": "^4.0",
+        "overtrue/phplint": "^3.0",
         "phpspec/prophecy": "^1.12",
         "phpunit/phpunit": "^9.5",
         "squizlabs/php_codesniffer": "^3.5"
@@ -51,23 +50,4 @@
         "phpcs": "phpcs --standard=./phpcs.xml -w -p -v --report=code ./",
         "phpcbf": "phpcbf --standard=./phpcbf.xml -p -v -vv -vvv ./"
     }
-} ||
-|| || | c69ec5b
-    "minimum-stability": "stable"
-} ===
-=== =
-"minimum-stability": "stable",
-"require-dev": {
-    "composer/composer": "^2.0",
-    "overtrue/phplint": "^3.0",
-    "phpspec/prophecy": "^1.12",
-    "phpunit/phpunit": "^9.5",
-    "squizlabs/php_codesniffer": "^3.5"
-},
-"scripts": {
-    "phplint": "phplint --no-cache .",
-    "phpcs": "phpcs --standard=./phpcs.xml -w -p -v --report=code ./",
-    "phpcbf": "phpcbf --standard=./phpcbf.xml -p -v -vv -vvv ./"
 }
-} >>>
->>> > develop
