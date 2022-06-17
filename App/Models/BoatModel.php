@@ -19,13 +19,14 @@ class Boat
         $status = $data['status'];
         $availability = $data['availability'];
         $description = $data['description'];
+        $images = $data['images'];
 
         $sql = "INSERT INTO models
                 (boattype, name,  price, lgth, width, weight, airdraft, draft,
-                 maxpk, maxpers, builtin, cec, status, availability, description)
+                 maxpk, maxpers, builtin, cec, status, availability, description, image)
                 VALUES
                ('$type', '$name', '$price', '$length', '$width', '$weight', '$airdraft',
-                '$draft', '$maxpk', '$maxpers', '$builtin', '$cec', '$status', '$availability', '$description')";
+                '$draft', '$maxpk', '$maxpers', '$builtin', '$cec', '$status', '$availability', '$description', '$images')";
         $created = executeSql($sql);
 
         if ($created) {

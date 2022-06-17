@@ -4,7 +4,7 @@
             <div class="card-body">
                 <h5 class="card-title">Nieuw Model</h5>
                 <p class="card-text">
-                <form method="post" action="/new-boat" class="model-info-form">
+                <form method="post" action="/new-boat" class="model-info-form" enctype="multipart/form-data">
 
                 <div style="float: left; width: 50%;">
                     <label for="naam">
@@ -151,6 +151,7 @@
 
                         <textarea id="beschrijving" name="beschrijving", rows="20" cols="50"
                                   placeholder="Vul hier in wat je verder nog wilt vertellen over de boot"></textarea>
+                        <input type="file" name="fotos" accept="image/jpg"><br>
                         <input type="submit" name="new" value="Alles opslaan" class="btn btn-primary"
                                onclick="return confirm('Weet je zeker dat je dit wilt opslaan?')">
                     </div>

@@ -118,6 +118,7 @@ class BoatController
             'availability' => htmlspecialchars($_POST['beschikbaarheid']),
             'description' => htmlspecialchars($_POST['beschrijving']),
             'type' => htmlspecialchars($_POST['type']),
+            'images' => htmlspecialchars($_FILES['fotos']['name']),
         );
 
         if (
@@ -138,7 +139,10 @@ class BoatController
         ) :
             $submission = (new Boat())->new($data);
 
-            if ($submission) :
+        $tempname = $_FILES['fotos']['tmp_name'];
+        $folder = "public/img/".$data['images'];
+
+            if ($submission && move_uploaded_file($tempname, $folder)) :
                 redirect('/boats');
                 exit;
             endif;
@@ -147,7 +151,7 @@ class BoatController
             exit;
         endif;
 
-        redirect('/error2');
+        redirect('/error');
     }
 
     public static function edit()
