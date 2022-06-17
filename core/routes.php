@@ -52,11 +52,6 @@ class Routes
 
                 if ($protectedRoute === true && (!isset($_SESSION['loggedin']))) {
                     (new NotFoundController())->index();
-                }
-
-                if (isset($_GET['id'])) {
-                    $id = htmlspecialchars($_GET['id']);
-                    $controller::$method($id);
                 } else {
                     $controller::$method();
                 }
