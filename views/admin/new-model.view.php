@@ -17,7 +17,7 @@
                         Prijs:
                     </label><br>
 
-                    <input type="number" inputmode="numeric" min="0" id="prijs" name="prijs" required
+                    <input type="number" inputmode="numeric" step="0.01" min="0" id="prijs" name="prijs" required
                            placeholder="15000">
                     <span>euro</span><br>
 
