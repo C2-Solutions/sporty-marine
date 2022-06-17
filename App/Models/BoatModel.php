@@ -75,4 +75,33 @@ class Boat
         }
         return false;
     }
+    public function newType($data)
+    {
+        $type = $data['type'];
+
+        $sql = "INSERT INTO boattype (type) VALUES ('$type')";
+        $created = executeSql($sql);
+
+        if ($created) {
+            return true;
+        }
+
+        return false;
+    }
+
+    public function editType($data)
+    {
+        $id = $data['id'];
+        $type = $data['type'];
+
+        $sql = "UPDATE boattype SET type = '$type' WHERE id = '$id'";
+
+        $edited = executeSql($sql);
+
+        if ($edited) {
+            return true;
+        }
+
+        return false;
+    }
 }

@@ -15,6 +15,10 @@
                     <li class="nav-item">
                         <a class="nav-link" href="boats">Modellen</a>
                     </li>
+<!--                    Temporary-->
+                    <li class="nav-item">
+                        <a class="nav-link" href="boattype">Boottypes</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="contact">Contact</a>
                     </li>
