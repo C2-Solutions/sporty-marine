@@ -5,7 +5,7 @@
 - Bryan Bao
 - Enno Andel
 - Remco Denekamp
-- Michael Vrijbrug
+- Michael Vrijburg
 - Joost Dijkstra
 
 ## Relevante documentatie
@@ -33,7 +33,7 @@
 
    By default these are the following values:
 
-   | username | password--- |
+   | username | password    |
    | -------- | ----------- |
    | admin    | password123 |
 
@@ -57,7 +57,8 @@
 
 ## Starting the server
 
-Open up a terminal in the root directory and run the following command:
+Open up a terminal in the root directory
+and run the following command:
 
 ```powershell
 php -S 127.0.0.1:8000
@@ -65,8 +66,15 @@ php -S 127.0.0.1:8000
 
 ## Creating an admin account
 
-To create an admin account, visit the `setup` page (simply add it in the url in your browser).
+To create an admin account,
+visit the `setup` page
+(simply add it in the url in your browser).
 
-You can set your username and password there, and after you press "create account", it will redirect you to the login page.
+You can set your username and password there,
+and after you press "create account",
+it will redirect you to the login page.
 
-Note that only one account can be created! After that, setup will refuse to create another one! If you want to create a new account, delete the user row in the database!
+**Note that only one account can be created!**
+After that, setup will refuse to create another one!
+If you want to create a new account,
+delete the user row in the database!
