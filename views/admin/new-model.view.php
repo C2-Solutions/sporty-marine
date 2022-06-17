@@ -140,6 +140,8 @@
                             <?php
                         endforeach;
                         echo '</select><br>';
+                    else :
+                        echo '<b>Je kan nog geen boot aanmaken totdat je tenminste 1 boottype hebt</b>';
                     endif;
                     ?>
                 </div>
@@ -151,8 +153,12 @@
 
                         <textarea id="beschrijving" name="beschrijving", rows="20" cols="50"
                                   placeholder="Vul hier in wat je verder nog wilt vertellen over de boot"></textarea>
+                        <?php
+                        if (!empty($types)) :
+                            ?>
                         <input type="submit" name="new" value="Alles opslaan" class="btn btn-primary"
                                onclick="return confirm('Weet je zeker dat je dit wilt opslaan?')">
+                        <?php endif;?>
                     </div>
                     </form>
                 </p>
