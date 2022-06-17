@@ -26,6 +26,18 @@ $routes = $router->define(
                 'name' => 'Contact',
                 'title' => 'Contact' . $namesuffix
             ],
+            $preroute . 'admin-contact' => [
+                'controller' => 'ContactController',
+                'method' => 'contactInformation',
+                'name' => 'Contact',
+                'title' => 'Contact' . $namesuffix
+            ],
+            $preroute . 'delete-contact' => [
+                'controller' => 'ContactController',
+                'method' => 'delete',
+                'name' => 'Contact',
+                'title' => 'Deleting' . $namesuffix
+            ],
             $preroute . 'boats' => [
                 'controller' => 'BoatController',
                 'method' => 'index',
@@ -62,6 +74,27 @@ $routes = $router->define(
                 'name' => 'Boat',
                 'title' => 'Deleting' . $namesuffix
             ],
+            $preroute . 'boattype' => [
+                'controller' => 'BoatController',
+                'method' => 'typeIndex',
+                'name' => 'Boat',
+                'protected' => true,
+                'title' => 'Boattypes' . $namesuffix
+            ],
+            $preroute . 'new-type' => [
+                'controller' => 'BoatController',
+                'method' => 'newTypeIndex',
+                'name' => 'Boat',
+                'protected' => true,
+                'title' => 'New type' . $namesuffix
+            ],
+            $preroute . 'delete-type' => [
+                'controller' => 'BoatController',
+                'method' => 'deleteType',
+                'name' => 'Boat',
+                'protected' => true,
+                'title' => 'Deleting' . $namesuffix
+            ],
             $preroute . 'login' => [
                 'controller' => 'AuthenticationController',
                 'method' => 'loginIndex',
@@ -72,6 +105,7 @@ $routes = $router->define(
                 'controller' => 'AuthenticationController',
                 'method' => 'logoutIndex',
                 'name' => 'Logout',
+                'protected' => true,
                 'title' => "Logout" . $namesuffix
             ],
             $preroute . 'setup' => [
@@ -88,7 +122,8 @@ $routes = $router->define(
             ],
             $preroute . 'logout' => [
                 'controller' => 'AuthenticationController',
-                'method' => 'logoutUser'
+                'method' => 'logoutUser',
+                'protected' => true,
             ],
             $preroute . 'setup' => [
                 'controller' => 'AuthenticationController',
@@ -100,11 +135,21 @@ $routes = $router->define(
             ],
             $preroute . 'new-boat' => [
                 'controller' => 'BoatController',
-                'method' => 'new'
+                'method' => 'new',
+                'protected' => true,
             ],
             $preroute . 'edit-boat' => [
                 'controller' => 'BoatController',
-                'method' => 'edit'
+                'method' => 'edit',
+                'protected' => true,
+            ],$preroute . 'new-type' => [
+                'controller' => 'BoatController',
+                'method' => 'newType',
+                'protected' => true,
+            ],$preroute . 'edit-type' => [
+                'controller' => 'BoatController',
+                'method' => 'editType',
+                'protected' => true,
             ],
         ]
     ]

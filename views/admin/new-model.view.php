@@ -140,6 +140,8 @@
                             <?php
                         endforeach;
                         echo '</select><br>';
+                    else :
+                        echo '<b>Je kan nog geen boot aanmaken totdat je tenminste 1 boottype hebt</b>';
                     endif;
                     ?>
                 </div>
@@ -154,6 +156,7 @@
                         <input type="file" name="fotos" accept="image/jpg"><br>
                         <input type="submit" name="new" value="Alles opslaan" class="btn btn-primary"
                                onclick="return confirm('Weet je zeker dat je dit wilt opslaan?')">
+                        <?php endif;?>
                     </div>
                     </form>
                 </p>

@@ -58,6 +58,34 @@ class BoatController
         endif;
     }
 
+    public static function typeIndex()
+    {
+        global $conn;
+
+        $content['model'] = false;
+        $extracontent['types'] = false;
+
+        $models = $conn->read('models');
+
+        $types = $conn->read('boattype');
+
+
+        if (!empty($model)) :
+            $content['models'] = $models;
+        endif;
+
+        if (!empty($types)) :
+            $extracontent['types'] = $types;
+        endif;
+
+        require(new ViewModel())->extendPath('views/admin/boattype.view.php', $content, $extracontent);
+    }
+
+    public static function newTypeIndex()
+    {
+        require(new ViewModel())->extendPath('views/admin/new-type.view.php');
+    }
+
     public static function newBoat()
     {
         global $conn;
@@ -202,6 +230,55 @@ class BoatController
         redirect("/error2");
     }
 
+    public static function newType()
+    {
+        $data = array(
+            'type' => htmlspecialchars($_POST['type']),
+        );
+
+        if (
+            !empty($data) &&
+            !empty($data['type'])
+        ) :
+            $submission = (new Boat())->newType($data);
+
+            if ($submission) :
+                redirect('/boattype');
+                exit;
+            endif;
+
+            redirect('/error');
+            exit;
+        endif;
+
+        redirect('/error2');
+    }
+
+    public static function editType()
+    {
+        $data = array(
+            'id' => $_POST['id'],
+            'type' => htmlspecialchars($_POST['type']),
+        );
+        if (
+            !empty($data) &&
+            !empty(($data['id'])) &&
+            !empty(($data['type']))
+        ) :
+            $submission = (new Boat())->editType($data);
+
+            if ($submission) :
+                redirect("/boattype");
+                exit;
+            endif;
+
+            redirect("/error");
+            exit;
+        endif;
+
+        redirect("/error2");
+    }
+
     public static function delete($id)
     {
         global $conn;
@@ -210,6 +287,19 @@ class BoatController
 
         if (!$deleted) :
             redirect('/boats');
+            exit;
+        endif;
+
+        redirect("/error");
+    }
+    public static function deleteType($id)
+    {
+        global $conn;
+
+        $deleted = $conn->delete($id, 'boattype');
+
+        if (!$deleted) :
+            redirect('/boattype');
             exit;
         endif;
 

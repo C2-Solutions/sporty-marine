@@ -21,19 +21,22 @@
                     <li class="nav-item">
                         <a class="nav-link" href="about">Over ons</a>
                     </li>
-                </ul>
-            </div>
             <!-- Show when the user logs in... -->
-            <?php if (isset($_SESSION['loggedin' === true])) { ?>
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <?php if (isset($_SESSION['loggedin'])) { ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="boats">Add models</a>
+                            <a class="nav-link" href="admin-models">Add models</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="contact">Dashboard</a>
+                            <a class="nav-link" href="boattype">Add boottypes</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="about">Logout</a>
+                            <a class="nav-link" href="admin-contact">View contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="admin-dashboard">Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="logout">Logout</a>
                         </li>
                     </ul>
                 </div>
