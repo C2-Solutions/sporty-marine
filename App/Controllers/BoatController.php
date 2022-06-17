@@ -26,7 +26,7 @@ class BoatController
             $content['models'] = $models;
         endif;
 
-        if ($_SESSION['loggedin']) {
+        if (isset($_SESSION['loggedin'])) {
             require(new ViewModel())->extendPath("views/admin/boats.view.php", $content);
             exit;
         }

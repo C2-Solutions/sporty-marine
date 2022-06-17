@@ -16,7 +16,7 @@ class ContactController
             $content['contacts'] = $contacts;
         endif;
 
-        if ($_SESSION['loggedin']) {
+        if (isset($_SESSION['loggedin'])) {
             require(new ViewModel())->extendPath("views/admin/contacts.view.php", $content);
             exit;
         }
