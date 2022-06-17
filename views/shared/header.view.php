@@ -24,13 +24,7 @@
             <!-- Show when the user logs in... -->
             <?php if (isset($_SESSION['loggedin'])) { ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="admin-models">Add models</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" href="boattype">Add boottypes</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="admin-contact">View contact</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="admin-dashboard">Dashboard</a>
