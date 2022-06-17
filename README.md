@@ -12,6 +12,11 @@
 
 - [Projectdefinitie](https://docs.google.com/document/d/1dld1MEQZXLTkF2HZgFMW62Ycbzer9MT_L3y4cgfvelI/edit?usp=sharing)
 
+## Dependencies
+
+- PHP
+- Composer
+
 ## Live environment
 
 - Onze klant had nog geen live omgeving geregeld dus alles is nog lokaal.
