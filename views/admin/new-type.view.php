@@ -1,3 +1,5 @@
+<?php
+?>
 <h1 style="color: dimgray; text-align: center">Nieuw Boottype</h1>
 
 <div class="card-body center">
