@@ -26,7 +26,8 @@ class Boat
                  maxpk, maxpers, builtin, cec, status, availability, description, image)
                 VALUES
                ('$type', '$name', '$price', '$length', '$width', '$weight', '$airdraft',
-                '$draft', '$maxpk', '$maxpers', '$builtin', '$cec', '$status', '$availability', '$description', '$images')";
+                '$draft', '$maxpk', '$maxpers', '$builtin', '$cec', '$status',
+                '$availability', '$description', '$images')";
         $created = executeSql($sql);
 
         if ($created) {

@@ -139,8 +139,8 @@ class BoatController
         ) :
             $submission = (new Boat())->new($data);
 
-        $tempname = $_FILES['fotos']['tmp_name'];
-        $folder = "public/img/".$data['images'];
+            $tempname = $_FILES['fotos']['tmp_name'];
+            $folder = "public/img/" . $data['images'];
 
             if ($submission && move_uploaded_file($tempname, $folder)) :
                 redirect('/boats');
