@@ -123,7 +123,7 @@ $routes = $router->define(
             $preroute . 'logout' => [
                 'controller' => 'AuthenticationController',
                 'method' => 'logoutUser',
-                'protected' => true,
+                'protected' => true
             ],
             $preroute . 'setup' => [
                 'controller' => 'AuthenticationController',
@@ -136,20 +136,22 @@ $routes = $router->define(
             $preroute . 'new-boat' => [
                 'controller' => 'BoatController',
                 'method' => 'new',
-                'protected' => true,
+                'protected' => true
             ],
             $preroute . 'edit-boat' => [
                 'controller' => 'BoatController',
                 'method' => 'edit',
-                'protected' => true,
-            ],$preroute . 'new-type' => [
+                'protected' => true
+            ],
+            $preroute . 'new-type' => [
                 'controller' => 'BoatController',
                 'method' => 'newType',
-                'protected' => true,
-            ],$preroute . 'edit-type' => [
+                'protected' => true
+            ],
+            $preroute . 'edit-type' => [
                 'controller' => 'BoatController',
                 'method' => 'editType',
-                'protected' => true,
+                'protected' => true
             ],
         ]
     ]
